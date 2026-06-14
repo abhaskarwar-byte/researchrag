@@ -1,0 +1,77 @@
+import fitz
+from docx import Document
+from chunk import chunk_text
+
+
+def read_txt(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        return file.read()
+
+
+def read_docx(file_path):
+    doc = Document(file_path)
+
+    text = ""
+
+    for paragraph in doc.paragraphs:
+        text += paragraph.text + "\n"
+
+    return text
+
+
+def read_pdf(file_path):
+    pdf = fitz.open(file_path)
+
+    text = ""
+
+    for page in pdf:
+        text += page.get_text()
+
+    pdf.close()
+
+    return text
+
+
+def extract_text(file_path):
+
+    if file_path.endswith(".txt"):
+        return read_txt(file_path)
+
+    elif file_path.endswith(".docx"):
+        return read_docx(file_path)
+
+    elif file_path.endswith(".pdf"):
+        return read_pdf(file_path)
+
+    else:
+        raise ValueError("Unsupported file type")
+
+def extract_pdf_pages(file_path):
+
+    pdf = fitz.open(file_path)
+
+    pages = []
+
+    for page_num, page in enumerate(pdf, start=1):
+
+        pages.append({
+            "page": page_num,
+            "text": page.get_text()
+        })
+
+    pdf.close()
+
+    return pages
+# TESTING
+
+file_path = "documents/sample.pdf"
+
+text = extract_text(file_path)
+
+chunks = chunk_text(text)
+
+print(f"Total Chunks: {len(chunks)}")
+
+for i, chunk in enumerate(chunks):
+    print(f"\n--- Chunk {i+1} ---")
+    print(chunk[:200])
