@@ -74,6 +74,11 @@ Hypothetical Passage:
     print("\nDISTANCES:")
     print(results["distances"][0])
 
+    print("\nTOP RETRIEVED CHUNKS:")
+
+    for i, doc in enumerate(results["documents"][0]):
+        print(f"\n----- CHUNK {i+1} -----")
+        print(doc[:500])
     # =====================================
     # EMPTY DATABASE
     # =====================================

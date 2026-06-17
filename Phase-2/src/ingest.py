@@ -27,6 +27,14 @@ def ingest_document(file_path):
         file_path
     )
 
+    print(f"\nTOTAL PAGES: {len(pages)}")
+
+    for page in pages:
+     print(
+        f"Page {page['page']} -> "
+        f"{len(page['text'])} chars"
+    )
+
     chunk_counter = 1
 
     # =====================================
