@@ -1,0 +1,5 @@
+Artificial Intelligence is transforming research and education.
+
+Machine learning models can analyze large amounts of data.
+
+Retrieval Augmented Generation combines search with language models.
