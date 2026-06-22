@@ -40,21 +40,21 @@ def split_into_paragraphs(text):
     )
 
     return [
-        p.strip()
-        for p in cleaned.split("\n\n")
-        if p.strip()
+        paragraph.strip()
+        for paragraph in cleaned.split("\n\n")
+        if paragraph.strip()
     ]
 
 
 def split_into_sentences(text):
 
-    text = normalize_text(
+    cleaned = normalize_text(
         text
     )
 
     sentences = re.split(
         r"(?<=[.!?])\s+",
-        text
+        cleaned
     )
 
     return [
@@ -64,44 +64,87 @@ def split_into_sentences(text):
     ]
 
 
-def chunk_text(
+# =====================================
+# RECURSIVE SEMANTIC CHUNKING
+# =====================================
+
+def recursive_chunk(
     text,
-    chunk_size=2,
-    chunk_overlap=0
+    max_chars=700
 ):
+
+    text = normalize_text(
+        text
+    )
+
+    if not text:
+        return []
+
+    if len(text) <= max_chars:
+
+        return [text]
 
     paragraphs = split_into_paragraphs(
         text
     )
 
-    if not paragraphs:
-        return []
+    # ---------------------------------
+    # SPLIT BY PARAGRAPHS
+    # ---------------------------------
+
+    if len(paragraphs) > 1:
+
+        chunks = []
+
+        for paragraph in paragraphs:
+
+            chunks.extend(
+                recursive_chunk(
+                    paragraph,
+                    max_chars
+                )
+            )
+
+        return chunks
+
+    # ---------------------------------
+    # SPLIT BY SENTENCES
+    # ---------------------------------
+
+    sentences = split_into_sentences(
+        text
+    )
 
     chunks = []
 
-    start = 0
+    current_chunk = ""
 
-    while start < len(paragraphs):
+    for sentence in sentences:
 
-        end = min(
-            start + chunk_size,
-            len(paragraphs)
-        )
+        if (
+            len(current_chunk)
+            + len(sentence)
+            <= max_chars
+        ):
 
-        chunk = "\n\n".join(
-            paragraphs[start:end]
-        )
+            current_chunk += (
+                sentence + " "
+            )
+
+        else:
+
+            chunks.append(
+                current_chunk.strip()
+            )
+
+            current_chunk = (
+                sentence + " "
+            )
+
+    if current_chunk:
 
         chunks.append(
-            chunk
-        )
-
-        if end == len(paragraphs):
-            break
-
-        start += max(
-            1,
-            chunk_size - chunk_overlap
+            current_chunk.strip()
         )
 
     return chunks
@@ -109,7 +152,7 @@ def chunk_text(
 
 def summarize_text(
     text,
-    max_chars=300
+    max_chars=500
 ):
 
     cleaned = normalize_text(
@@ -159,15 +202,12 @@ def summarize_text(
 
 def build_parent_child_chunks(
     text,
-    chunk_size=2,
-    chunk_overlap=0,
     parent_chunk_size=3
 ):
 
-    children = chunk_text(
+    children = recursive_chunk(
         text,
-        chunk_size,
-        chunk_overlap
+        max_chars=700
     )
 
     parents = []
@@ -196,3 +236,30 @@ def build_parent_child_chunks(
         parent_id += 1
 
     return children, parents
+
+
+if __name__ == "__main__":
+
+    sample_text = """
+    Paragraph one.
+
+    Paragraph two.
+
+    Paragraph three.
+
+    Paragraph four.
+    """
+
+    children, parents = (
+        build_parent_child_chunks(
+            sample_text
+        )
+    )
+
+    print(
+        f"Children: {len(children)}"
+    )
+
+    print(
+        f"Parents: {len(parents)}"
+    )

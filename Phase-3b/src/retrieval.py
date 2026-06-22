@@ -3,51 +3,26 @@ import math
 import re
 from collections import Counter
 
+from nltk.corpus import stopwords
 
-STOPWORDS = {
-    "what",
-    "is",
-    "the",
-    "a",
-    "an",
-    "of",
-    "in",
-    "to",
-    "for",
-    "and",
-    "on",
-    "with",
-    "how",
-    "why",
-    "does",
-    "do",
-    "are",
-    "was",
-    "were"
-}
+
+STOPWORDS = set(
+    stopwords.words("english")
+)
 
 
 def extract_keywords(text):
 
-    keywords = []
+    tokens = re.findall(
+        r"[a-zA-Z0-9]+",
+        text.lower()
+    )
 
-    for word in text.lower().split():
-
-        cleaned = re.sub(
-            r"[^a-z0-9]",
-            "",
-            word
-        )
-
-        if (
-            cleaned
-            and cleaned not in STOPWORDS
-        ):
-            keywords.append(
-                cleaned
-            )
-
-    return keywords
+    return [
+        token
+        for token in tokens
+        if token not in STOPWORDS
+    ]
 
 
 def tokenize(text):
@@ -70,12 +45,12 @@ def score_chunk(
 
     for keyword in keywords:
 
-        score += len(
-            re.findall(
-                rf"\b{re.escape(keyword)}\b",
-                text_lower
-            )
+        matches = re.findall(
+            rf"\b{re.escape(keyword)}\b",
+            text_lower
         )
+
+        score += len(matches)
 
     phrase = " ".join(
         keywords
@@ -110,7 +85,10 @@ def bm25_rank(
     for keyword_score, chunk in chunks:
 
         text = (
-            chunk["summary"]
+            chunk.get(
+                "summary",
+                ""
+            )
             .lower()
         )
 
@@ -161,23 +139,19 @@ def bm25_rank(
 
         for keyword in keywords:
 
-            tf = (
-                document["counts"]
-                .get(
-                    keyword,
-                    0
-                )
+            tf = document[
+                "counts"
+            ].get(
+                keyword,
+                0
             )
 
             if tf == 0:
                 continue
 
-            df = (
-                document_frequency
-                .get(
-                    keyword,
-                    0
-                )
+            df = document_frequency.get(
+                keyword,
+                0
             )
 
             idf = math.log(
@@ -187,7 +161,8 @@ def bm25_rank(
                     - df
                     + 0.5
                 )
-                / (
+                /
+                (
                     df
                     + 0.5
                 )
@@ -208,9 +183,7 @@ def bm25_rank(
             bm25_score += (
                 idf
                 * tf
-                * (
-                    k1 + 1
-                )
+                * (k1 + 1)
                 / denominator
             )
 
@@ -274,7 +247,10 @@ def retrieve_candidate_children(
     for parent in parent_chunks:
 
         score = score_chunk(
-            parent["summary"],
+            parent.get(
+                "summary",
+                ""
+            ),
             keywords,
             question
         )
@@ -334,10 +310,13 @@ def retrieve_candidate_children(
 
 if __name__ == "__main__":
 
-    children = retrieve_candidate_children(
-        "What is positional encoding?"
+    children = (
+        retrieve_candidate_children(
+            "What is positional encoding?"
+        )
     )
 
     print(
-        f"\nRetrieved {len(children)} children"
+        f"\nRetrieved "
+        f"{len(children)} children"
     )
