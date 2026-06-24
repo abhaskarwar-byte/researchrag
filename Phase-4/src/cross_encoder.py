@@ -2,6 +2,8 @@ from sentence_transformers import (
     CrossEncoder
 )
 
+MIN_RELEVANCE_SCORE = 0.0
+
 model = CrossEncoder(
     "cross-encoder/ms-marco-MiniLM-L-6-v2"
 )
@@ -66,10 +68,27 @@ def rerank_chunks(
 
         print("-" * 50)
 
-    return [
-        chunk
-        for score, chunk in ranked[:top_k]
-    ]
+    filtered_chunks = []
+
+    for score, chunk in ranked:
+
+        if score >= MIN_RELEVANCE_SCORE:
+
+            filtered_chunks.append(
+                chunk
+            )
+
+        if len(filtered_chunks) >= top_k:
+
+            break
+
+    if not filtered_chunks:
+
+        print(
+            "\nNo chunks passed relevance threshold."
+        )
+
+    return filtered_chunks
 
 
 if __name__ == "__main__":

@@ -212,6 +212,47 @@ def bm25_rank(
 
     return ranked[:top_k]
 
+def retrieve_top_parents_for_query(
+    query,
+    parent_chunks,
+    top_k=5
+):
+
+    keywords = (
+        extract_keywords(
+            query
+        )
+    )
+
+    scored_parents = []
+
+    for parent in parent_chunks:
+
+        score = score_chunk(
+            parent.get(
+                "summary",
+                ""
+            ),
+            keywords,
+            query
+        )
+
+        if score > 0:
+
+            scored_parents.append(
+                (
+                    score,
+                    parent
+                )
+            )
+
+    ranking = bm25_rank(
+        scored_parents,
+        keywords,
+        top_k
+    )
+
+    return ranking
 
 def retrieve_candidate_children(
     question
@@ -294,38 +335,12 @@ def retrieve_candidate_children(
 
     for query in queries:
 
-        keywords = (
-            extract_keywords(
-                query
+        ranking = (
+            retrieve_top_parents_for_query(
+                query,
+                parent_chunks,
+                top_k=5
             )
-        )
-
-        scored_parents = []
-
-        for parent in parent_chunks:
-
-            score = score_chunk(
-                parent.get(
-                    "summary",
-                    ""
-                ),
-                keywords,
-                query
-            )
-
-            if score > 0:
-
-                scored_parents.append(
-                    (
-                        score,
-                        parent
-                    )
-                )
-
-        ranking = bm25_rank(
-            scored_parents,
-            keywords,
-            top_k=5
         )
 
         if ranking:
@@ -396,6 +411,84 @@ def retrieve_candidate_children(
 
     return candidate_children
 
+def retrieve_children_from_queries(
+    queries
+):
+
+    with open(
+        "data/chunks.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        chunks = json.load(f)
+
+    parent_chunks = [
+        chunk
+        for chunk in chunks
+        if chunk["chunk_type"]
+        == "parent"
+    ]
+
+    child_chunks = [
+        chunk
+        for chunk in chunks
+        if chunk["chunk_type"]
+        == "child"
+    ]
+
+    all_rankings = []
+
+    for query in queries:
+
+        ranking = (
+            retrieve_top_parents_for_query(
+                query,
+                parent_chunks,
+                top_k=5
+            )
+        )
+
+        if ranking:
+
+            all_rankings.append(
+                ranking
+            )
+
+    if not all_rankings:
+
+        return []
+
+    fused_parents = (
+        rrf_fusion(
+            all_rankings
+        )
+    )
+
+    parent_ids = set()
+
+    for score, parent in (
+        fused_parents[:5]
+    ):
+
+        parent_ids.add(
+            parent["parent_id"]
+        )
+
+    candidate_children = []
+
+    for child in child_chunks:
+
+        if (
+            child["parent_id"]
+            in parent_ids
+        ):
+
+            candidate_children.append(
+                child
+            )
+
+    return candidate_children
 
 if __name__ == "__main__":
 
