@@ -10,10 +10,6 @@ from pydantic import BaseModel
 import os
 import shutil
 
-from src.ingest import (
-    ingest_document
-)
-
 from src.graph_build import (
     build_graph
 )
@@ -205,11 +201,37 @@ def query(
 
     )
 
-    if isinstance(
+    # -----------------------------
+    # Final Hybrid Retrieval
+    # -----------------------------
 
-        retrieval,
+    if (
 
-        dict
+        isinstance(retrieval, dict)
+
+        and "semantic_results" in retrieval
+
+    ):
+
+        response = answer_question(
+
+            request.question,
+
+            retrieval,
+
+            retrieval_type="hybrid"
+
+        )
+
+    # -----------------------------
+    # Graph Retrieval
+    # -----------------------------
+
+    elif (
+
+        isinstance(retrieval, dict)
+
+        and "results" in retrieval
 
     ):
 
@@ -222,6 +244,11 @@ def query(
             retrieval_type="graph"
 
         )
+
+    # -----------------------------
+    # Semantic Retrieval
+    # (Vector + Full Text)
+    # -----------------------------
 
     else:
 

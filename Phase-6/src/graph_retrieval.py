@@ -5,6 +5,7 @@ from src.neo4j_store import (
     fulltext_search
 )
 
+from src.cypher_generator import graph_query
 
 EMBED_MODEL = "nomic-embed-text"
 
@@ -259,3 +260,53 @@ if __name__ == "__main__":
     for result in hybrid:
 
         print(result)
+
+# =====================================
+# FINAL HYBRID RETRIEVAL
+# (Semantic + Graph)
+# =====================================
+
+def final_hybrid_retrieval(
+
+    question,
+
+    top_k=5
+
+):
+
+    print(
+
+        "\nRunning Final Hybrid Retrieval..."
+
+    )
+
+    # ---------------------------------
+    # Semantic Retrieval
+    # (Vector + Full Text)
+    # ---------------------------------
+
+    semantic_results = hybrid_retrieval(
+
+        query=question,
+
+        top_k=top_k
+
+    )
+
+    # ---------------------------------
+    # Graph Retrieval
+    # ---------------------------------
+
+    graph_results = graph_query(
+
+        question
+
+    )
+
+    return {
+
+        "semantic_results": semantic_results,
+
+        "graph_results": graph_results
+
+    }

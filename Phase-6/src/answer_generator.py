@@ -157,13 +157,61 @@ def answer_question(
 
 ):
 
-    if retrieval_type == "graph":
+    # -------------------------
+    # Graph Only
+    # -------------------------
+
+    if (
+
+        retrieval_type == "graph"
+
+    ):
 
         context = format_graph_context(
 
             retrieval_result["results"]
 
         )
+
+    # -------------------------
+    # Final Hybrid
+    # -------------------------
+
+    elif (
+
+        retrieval_type == "hybrid"
+
+    ):
+
+        semantic_context = format_retrieval_context(
+
+            retrieval_result["semantic_results"]
+
+        )
+
+        graph_context = format_graph_context(
+
+            retrieval_result["graph_results"]["results"]
+
+        )
+
+        context = (
+
+            "===== SEMANTIC CONTEXT =====\n\n"
+
+            + semantic_context
+
+            + "\n\n"
+
+            + "===== GRAPH CONTEXT =====\n\n"
+
+            + graph_context
+
+        )
+
+    # -------------------------
+    # Semantic Only
+    # -------------------------
 
     else:
 
@@ -190,7 +238,6 @@ def answer_question(
         "answer": answer
 
     }
-
 
 # =====================================
 # MAIN

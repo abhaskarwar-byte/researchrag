@@ -6,7 +6,7 @@ from src.config import (
 
 from src.graph_retrieval import (
     hybrid_retrieval,
-    vector_retrieval
+    final_hybrid_retrieval
 )
 
 from src.cypher_generator import (
@@ -143,7 +143,7 @@ def route_query(
 
     if route == "vector":
 
-        return vector_retrieval(
+        return hybrid_retrieval(
 
             question
 
@@ -159,7 +159,7 @@ def route_query(
 
     else:
 
-        return hybrid_retrieval(
+        return final_hybrid_retrieval(
 
             question
 
