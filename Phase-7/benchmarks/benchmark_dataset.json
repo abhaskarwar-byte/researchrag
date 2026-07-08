@@ -1,0 +1,5432 @@
+[
+    {
+        "id": 1,
+        "paper": "controlnet.pdf",
+        "page": 1,
+        "parent_chunk": 4,
+        "summary": "Many of us have experienced flashes of visual inspiration\nthat we wish to capture in a unique image. With the advent\nof text-to-image diffusion models [54, 62, 72], we can now\ncreate visually stunning images by typing in a text prompt.",
+        "question": "What type of models are mentioned in the summary as enabling the creation of visually stunning images through text prompts?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "text-to-image diffusion models",
+        "expected_entities": [
+            {
+                "name": "text-to-image diffusion models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 2,
+        "paper": "controlnet.pdf",
+        "page": 1,
+        "parent_chunk": 4,
+        "summary": "Many of us have experienced flashes of visual inspiration\nthat we wish to capture in a unique image. With the advent\nof text-to-image diffusion models [54, 62, 72], we can now\ncreate visually stunning images by typing in a text prompt.",
+        "question": "What is the primary application of text-to-image diffusion models according to the summary?",
+        "question_type": "Application",
+        "difficulty": "Medium",
+        "reference_answer": "creating visually stunning images by typing in a text prompt",
+        "expected_entities": [
+            {
+                "name": "text-to-image diffusion models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 3,
+        "paper": "controlnet.pdf",
+        "page": 2,
+        "parent_chunk": 7,
+        "summary": "In summary, (1) we propose ControlNet, a neural network\narchitecture that can add spatially localized input conditions\nto a pretrained text-to-image diffusion model via efficient\nfinetuning, (2) we present pretrained ControlNets to control\nStable Diffusion, conditioned on Canny edges, Hough lines,\nu",
+        "question": "What is the purpose of ControlNet in relation to Stable Diffusion?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "to control Stable Diffusion, conditioned on Canny edges, Hough lines, etc.",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Stable Diffusion",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "paper": "controlnet.pdf",
+        "page": 2,
+        "parent_chunk": 7,
+        "summary": "In summary, (1) we propose ControlNet, a neural network\narchitecture that can add spatially localized input conditions\nto a pretrained text-to-image diffusion model via efficient\nfinetuning, (2) we present pretrained ControlNets to control\nStable Diffusion, conditioned on Canny edges, Hough lines,\nu",
+        "question": "How does ControlNet modify a pretrained text-to-image diffusion model?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "via efficient finetuning to add spatially localized input conditions",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Stable Diffusion",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "paper": "controlnet.pdf",
+        "page": 2,
+        "parent_chunk": 8,
+        "summary": "One way to finetune a neural network is to directly continue\ntraining it with the additional training data. But this approach\ncan lead to overfitting, mode collapse, and catastrophic forgetting. Extensive research has focused on developing finetuning strategies that avoid such issues.",
+        "question": "What are the potential issues that can arise when finetuning a neural network by directly continuing its training with additional data?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "overfitting, mode collapse, and catastrophic forgetting",
+        "expected_entities": [
+            {
+                "name": "neural network",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 6,
+        "paper": "controlnet.pdf",
+        "page": 2,
+        "parent_chunk": 8,
+        "summary": "One way to finetune a neural network is to directly continue\ntraining it with the additional training data. But this approach\ncan lead to overfitting, mode collapse, and catastrophic forgetting. Extensive research has focused on developing finetuning strategies that avoid such issues.",
+        "question": "What approach to finetuning a neural network can lead to overfitting, mode collapse, and catastrophic forgetting?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "directly continuing its training with additional data",
+        "expected_entities": [
+            {
+                "name": "neural network",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 7,
+        "paper": "controlnet.pdf",
+        "page": 3,
+        "parent_chunk": 10,
+        "summary": "parameterized models reside in a low intrinsic dimension\nsubspace [2, 47]. Zero-Initialized Layers are used by ControlNet for connecting network blocks. Research on neural networks has\nextensively discussed the initialization and manipulation of\nnetwork weights [36, 37, 44, 45, 46, 76, 83, 95].",
+        "question": "What component does ControlNet use for connecting network blocks?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Zero-Initialized Layers",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Zero-Initialized Layers",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Zero-Initialized Layers",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "paper": "controlnet.pdf",
+        "page": 3,
+        "parent_chunk": 10,
+        "summary": "parameterized models reside in a low intrinsic dimension\nsubspace [2, 47]. Zero-Initialized Layers are used by ControlNet for connecting network blocks. Research on neural networks has\nextensively discussed the initialization and manipulation of\nnetwork weights [36, 37, 44, 45, 46, 76, 83, 95].",
+        "question": "How do parameterized models reside in terms of intrinsic dimension subspace?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "in a low intrinsic dimension subspace",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Zero-Initialized Layers",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Zero-Initialized Layers",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "paper": "controlnet.pdf",
+        "page": 3,
+        "parent_chunk": 11,
+        "summary": "2.2. Image Diffusion\n\nImage Diffusion Models were first introduced by SohlDickstein et al. [81] and have been recently applied to\nimage generation [17, 42]. The Latent Diffusion Models\n(LDM) [72] performs the diffusion steps in the latent image\nspace [19], which reduces the computation cost.",
+        "question": "What type of models were introduced by SohlDickstein et al.?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Image Diffusion Models",
+        "expected_entities": [
+            {
+                "name": "SohlDickstein",
+                "type": "Person"
+            },
+            {
+                "name": "Image Diffusion Models",
+                "type": "Model"
+            },
+            {
+                "name": "Latent Diffusion Models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "SohlDickstein",
+                "target": "Image Diffusion Models",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "paper": "controlnet.pdf",
+        "page": 3,
+        "parent_chunk": 11,
+        "summary": "2.2. Image Diffusion\n\nImage Diffusion Models were first introduced by SohlDickstein et al. [81] and have been recently applied to\nimage generation [17, 42]. The Latent Diffusion Models\n(LDM) [72] performs the diffusion steps in the latent image\nspace [19], which reduces the computation cost.",
+        "question": "How do Latent Diffusion Models reduce computation cost?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "by performing the diffusion steps in the latent image space",
+        "expected_entities": [
+            {
+                "name": "SohlDickstein",
+                "type": "Person"
+            },
+            {
+                "name": "Image Diffusion Models",
+                "type": "Model"
+            },
+            {
+                "name": "Latent Diffusion Models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "SohlDickstein",
+                "target": "Image Diffusion Models",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "paper": "controlnet.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "where yc is the output of the ControlNet block. In the first\ntraining step, since both the weight and bias parameters of\na zero convolution layer are initialized to zero, both of the\nZ(·; ·) terms in Equation (2) evaluate to zero, and\n\nyc = y.",
+        "question": "What is the output of the ControlNet block?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "yc",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Equation (2)",
+                "type": "Concept"
+            },
+            {
+                "name": "yc",
+                "type": "Component"
+            },
+            {
+                "name": "y",
+                "type": "Component"
+            },
+            {
+                "name": "Z(·; ·)",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "yc",
+                "relation": "OUTPUTS"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "paper": "controlnet.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "where yc is the output of the ControlNet block. In the first\ntraining step, since both the weight and bias parameters of\na zero convolution layer are initialized to zero, both of the\nZ(·; ·) terms in Equation (2) evaluate to zero, and\n\nyc = y.",
+        "question": "What happens to the Z(·; ·) terms in Equation (2) during the first training step?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "They evaluate to zero",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Equation (2)",
+                "type": "Concept"
+            },
+            {
+                "name": "yc",
+                "type": "Component"
+            },
+            {
+                "name": "y",
+                "type": "Component"
+            },
+            {
+                "name": "Z(·; ·)",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "yc",
+                "relation": "OUTPUTS"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "paper": "controlnet.pdf",
+        "page": 4,
+        "parent_chunk": 18,
+        "summary": "3.2. ControlNet for Text-to-Image Diffusion\n\nWe use Stable Diffusion [72] as an example to show how\nControlNet can add conditional control to a large pretrained\ndiffusion model. Stable Diffusion is essentially a U-Net [73]\nwith an encoder, a middle block, and a skip-connected decoder.",
+        "question": "What diffusion model is ControlNet used to add conditional control to?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Stable Diffusion",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "U-Net",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Stable Diffusion",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "paper": "controlnet.pdf",
+        "page": 4,
+        "parent_chunk": 18,
+        "summary": "3.2. ControlNet for Text-to-Image Diffusion\n\nWe use Stable Diffusion [72] as an example to show how\nControlNet can add conditional control to a large pretrained\ndiffusion model. Stable Diffusion is essentially a U-Net [73]\nwith an encoder, a middle block, and a skip-connected decoder.",
+        "question": "What type of architecture is Stable Diffusion essentially based on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "U-Net",
+        "expected_entities": [
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "U-Net",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet",
+                "target": "Stable Diffusion",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "paper": "controlnet.pdf",
+        "page": 5,
+        "parent_chunk": 26,
+        "summary": "more time in each training iteration, compared to optimizing\nStable Diffusion without ControlNet. Image diffusion models learn to progressively denoise\nimages and generate samples from the training domain. The\ndenoising process can occur in pixel space or in a latent\nspace encoded from training d...",
+        "question": "What type of models learn to progressively denoise images and generate samples from the training domain?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "image diffusion models",
+        "expected_entities": [
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "image diffusion models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 16,
+        "paper": "controlnet.pdf",
+        "page": 5,
+        "parent_chunk": 26,
+        "summary": "more time in each training iteration, compared to optimizing\nStable Diffusion without ControlNet. Image diffusion models learn to progressively denoise\nimages and generate samples from the training domain. The\ndenoising process can occur in pixel space or in a latent\nspace encoded from training d...",
+        "question": "How does the training iteration time compare between optimizing Stable Diffusion with and without ControlNet?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "More time is required in each training iteration when optimizing Stable Diffusion with ControlNet",
+        "expected_entities": [
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "image diffusion models",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 17,
+        "paper": "controlnet.pdf",
+        "page": 6,
+        "parent_chunk": 32,
+        "summary": "Sketch\nNormal map\nDepth map\nCanny[11] edge\nM-LSD[24] line\nHED[91] edge\nADE20k[96] seg. Human pose\n\nFigure 7: Controlling Stable Diffusion with various conditions without prompts. The top row is input conditions, while all\nother rows are outputs. We use the empty string as input prompts.",
+        "question": "What types of conditions are used to control Stable Diffusion without prompts, as shown in Figure 7?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Sketch, Normal map, Depth map, Canny edge, M-LSD line, HED edge, ADE20k seg, Human pose",
+        "expected_entities": [
+            {
+                "name": "Sketch",
+                "type": "Concept"
+            },
+            {
+                "name": "Normal map",
+                "type": "Concept"
+            },
+            {
+                "name": "Depth map",
+                "type": "Concept"
+            },
+            {
+                "name": "Canny edge",
+                "type": "Method"
+            },
+            {
+                "name": "M-LSD line",
+                "type": "Method"
+            },
+            {
+                "name": "HED edge",
+                "type": "Method"
+            },
+            {
+                "name": "ADE20k",
+                "type": "Dataset"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Stable Diffusion",
+                "target": "Sketch",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Normal map",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Depth map",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Canny edge",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "M-LSD line",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "HED edge",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "ADE20k",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "paper": "controlnet.pdf",
+        "page": 6,
+        "parent_chunk": 32,
+        "summary": "Sketch\nNormal map\nDepth map\nCanny[11] edge\nM-LSD[24] line\nHED[91] edge\nADE20k[96] seg. Human pose\n\nFigure 7: Controlling Stable Diffusion with various conditions without prompts. The top row is input conditions, while all\nother rows are outputs. We use the empty string as input prompts.",
+        "question": "What dataset is Stable Diffusion trained on, according to the given relationships?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "ADE20k",
+        "expected_entities": [
+            {
+                "name": "Sketch",
+                "type": "Concept"
+            },
+            {
+                "name": "Normal map",
+                "type": "Concept"
+            },
+            {
+                "name": "Depth map",
+                "type": "Concept"
+            },
+            {
+                "name": "Canny edge",
+                "type": "Method"
+            },
+            {
+                "name": "M-LSD line",
+                "type": "Method"
+            },
+            {
+                "name": "HED edge",
+                "type": "Method"
+            },
+            {
+                "name": "ADE20k",
+                "type": "Dataset"
+            },
+            {
+                "name": "Stable Diffusion",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Stable Diffusion",
+                "target": "Sketch",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Normal map",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Depth map",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "Canny edge",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "M-LSD line",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "HED edge",
+                "relation": "USES"
+            },
+            {
+                "source": "Stable Diffusion",
+                "target": "ADE20k",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "paper": "controlnet.pdf",
+        "page": 6,
+        "parent_chunk": 33,
+        "summary": "PITI [89](sketch)\n1.10 ± 0.05\n1.02 ± 0.01\nSketch-Guided [88] (β = 1.6)\n3.21 ± 0.62\n2.31 ± 0.57\nSketch-Guided [88] (β = 3.2)\n2.52 ± 0.44\n3.28 ± 0.72\nControlNet-lite\n3.93 ± 0.59\n4.09 ± 0.46\nControlNet\n4.22 ± 0.43\n4.28 ± 0.45\n\nTable 1: Average User Ranking (AUR) of result quality and\ncondition fidelity",
+        "question": "What are the models compared in Table 1 based on Average User Ranking (AUR) of result quality and condition fidelity?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "PITI, Sketch-Guided, ControlNet-lite, ControlNet",
+        "expected_entities": [
+            {
+                "name": "PITI",
+                "type": "Model"
+            },
+            {
+                "name": "Sketch-Guided",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet-lite",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Table 1",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 20,
+        "paper": "controlnet.pdf",
+        "page": 6,
+        "parent_chunk": 33,
+        "summary": "PITI [89](sketch)\n1.10 ± 0.05\n1.02 ± 0.01\nSketch-Guided [88] (β = 1.6)\n3.21 ± 0.62\n2.31 ± 0.57\nSketch-Guided [88] (β = 3.2)\n2.52 ± 0.44\n3.28 ± 0.72\nControlNet-lite\n3.93 ± 0.59\n4.09 ± 0.46\nControlNet\n4.22 ± 0.43\n4.28 ± 0.45\n\nTable 1: Average User Ranking (AUR) of result quality and\ncondition fidelity",
+        "question": "How do the Average User Ranking (AUR) values of ControlNet and ControlNet-lite compare for result quality and condition fidelity?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "ControlNet has slightly higher AUR values (4.22 and 4.28) compared to ControlNet-lite (3.93 and 4.09) for result quality and condition fidelity respectively.",
+        "expected_entities": [
+            {
+                "name": "PITI",
+                "type": "Model"
+            },
+            {
+                "name": "Sketch-Guided",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet-lite",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNet",
+                "type": "Model"
+            },
+            {
+                "name": "Table 1",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 21,
+        "paper": "controlnet.pdf",
+        "page": 7,
+        "parent_chunk": 39,
+        "summary": "Table 2: Evaluation of semantic segmentation label reconstruction (ADE20K) with Intersection over Union (IoU ↑). all 4 settings. The lightweight ControlNet-lite (Figure 8c) is\nnot strong enough to interpret the conditioning images and\nfails in the insufficient and no prompt conditions.",
+        "question": "What metric is used to evaluate semantic segmentation label reconstruction in the given settings?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Intersection over Union (IoU)",
+        "expected_entities": [
+            {
+                "name": "ControlNet-lite",
+                "type": "Model"
+            },
+            {
+                "name": "ADE20K",
+                "type": "Dataset"
+            },
+            {
+                "name": "Intersection over Union",
+                "type": "Metric"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet-lite",
+                "target": "ADE20K",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "paper": "controlnet.pdf",
+        "page": 7,
+        "parent_chunk": 39,
+        "summary": "Table 2: Evaluation of semantic segmentation label reconstruction (ADE20K) with Intersection over Union (IoU ↑). all 4 settings. The lightweight ControlNet-lite (Figure 8c) is\nnot strong enough to interpret the conditioning images and\nfails in the insufficient and no prompt conditions.",
+        "question": "On which dataset is the ControlNet-lite model evaluated?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "ADE20K",
+        "expected_entities": [
+            {
+                "name": "ControlNet-lite",
+                "type": "Model"
+            },
+            {
+                "name": "ADE20K",
+                "type": "Dataset"
+            },
+            {
+                "name": "Intersection over Union",
+                "type": "Metric"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNet-lite",
+                "target": "ADE20K",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "paper": "controlnet.pdf",
+        "page": 8,
+        "parent_chunk": 47,
+        "summary": "Comic Diffusion\nProtogen 3.4\nSD 1.5\n“house”\n\nFigure 12: Transfer pretrained ControlNets to community\nmodels [16, 61] without training the neural networks again. the model to generate a recognizable lion. The learning is\nscalable when more data is provided. Capability to interpret contents.",
+        "question": "What models are mentioned in the summary as being related to the concept of generating a recognizable lion?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "ControlNets",
+        "expected_entities": [
+            {
+                "name": "Comic Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "Protogen 3.4",
+                "type": "Model"
+            },
+            {
+                "name": "SD 1.5",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNets",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNets",
+                "target": "community models",
+                "relation": "TRANSFERRED_TO"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "paper": "controlnet.pdf",
+        "page": 8,
+        "parent_chunk": 47,
+        "summary": "Comic Diffusion\nProtogen 3.4\nSD 1.5\n“house”\n\nFigure 12: Transfer pretrained ControlNets to community\nmodels [16, 61] without training the neural networks again. the model to generate a recognizable lion. The learning is\nscalable when more data is provided. Capability to interpret contents.",
+        "question": "What is the capability of the model when more data is provided, according to the summary?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "The learning is scalable",
+        "expected_entities": [
+            {
+                "name": "Comic Diffusion",
+                "type": "Model"
+            },
+            {
+                "name": "Protogen 3.4",
+                "type": "Model"
+            },
+            {
+                "name": "SD 1.5",
+                "type": "Model"
+            },
+            {
+                "name": "ControlNets",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "ControlNets",
+                "target": "community models",
+                "relation": "TRANSFERRED_TO"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 50,
+        "summary": "Only\na matter of style: Age transformation using a style-based\nregression model. ACM Transactions on Graphics (TOG),\n40(4), 2021. 3\n[4] Yuval Alaluf, Omer Tov, Ron Mokady, Rinon Gal, and Amit\nBermano. Hyperstyle: Stylegan inversion with hypernetworks\nfor real image editing.",
+        "question": "What model does Hyperstyle use for real image editing?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Stylegan",
+        "expected_entities": [
+            {
+                "name": "Yuval Alaluf",
+                "type": "Person"
+            },
+            {
+                "name": "Omer Tov",
+                "type": "Person"
+            },
+            {
+                "name": "Ron Mokady",
+                "type": "Person"
+            },
+            {
+                "name": "Rinon Gal",
+                "type": "Person"
+            },
+            {
+                "name": "Amit Bermano",
+                "type": "Person"
+            },
+            {
+                "name": "ACM Transactions on Graphics (TOG)",
+                "type": "Organization"
+            },
+            {
+                "name": "Hyperstyle",
+                "type": "Model"
+            },
+            {
+                "name": "Stylegan",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Yuval Alaluf",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Omer Tov",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ron Mokady",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Rinon Gal",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Amit Bermano",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Hyperstyle",
+                "target": "Stylegan",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 50,
+        "summary": "Only\na matter of style: Age transformation using a style-based\nregression model. ACM Transactions on Graphics (TOG),\n40(4), 2021. 3\n[4] Yuval Alaluf, Omer Tov, Ron Mokady, Rinon Gal, and Amit\nBermano. Hyperstyle: Stylegan inversion with hypernetworks\nfor real image editing.",
+        "question": "Who are the proposers of the Hyperstyle model?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Yuval Alaluf, Omer Tov, Ron Mokady, Rinon Gal, and Amit Bermano",
+        "expected_entities": [
+            {
+                "name": "Yuval Alaluf",
+                "type": "Person"
+            },
+            {
+                "name": "Omer Tov",
+                "type": "Person"
+            },
+            {
+                "name": "Ron Mokady",
+                "type": "Person"
+            },
+            {
+                "name": "Rinon Gal",
+                "type": "Person"
+            },
+            {
+                "name": "Amit Bermano",
+                "type": "Person"
+            },
+            {
+                "name": "ACM Transactions on Graphics (TOG)",
+                "type": "Organization"
+            },
+            {
+                "name": "Hyperstyle",
+                "type": "Model"
+            },
+            {
+                "name": "Stylegan",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Yuval Alaluf",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Omer Tov",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ron Mokady",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Rinon Gal",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Amit Bermano",
+                "target": "Hyperstyle",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Hyperstyle",
+                "target": "Stylegan",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 51,
+        "summary": "tion using part affinity fields. IEEE Transactions on Pattern\nAnalysis and Machine Intelligence, 2019. 6\n[13] Hanting Chen, Yunhe Wang, Tianyu Guo, Chang Xu, Yiping\nDeng, Zhenhua Liu, Siwei Ma, Chunjing Xu, Chao Xu, and\nWen Gao. Pre-trained image processing transformer.",
+        "question": "What is the title of the publication where the concept of part affinity fields is discussed?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+        "expected_entities": [
+            {
+                "name": "Hanting Chen",
+                "type": "Person"
+            },
+            {
+                "name": "Yunhe Wang",
+                "type": "Person"
+            },
+            {
+                "name": "Tianyu Guo",
+                "type": "Person"
+            },
+            {
+                "name": "Chang Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Yiping Deng",
+                "type": "Person"
+            },
+            {
+                "name": "Zhenhua Liu",
+                "type": "Person"
+            },
+            {
+                "name": "Siwei Ma",
+                "type": "Person"
+            },
+            {
+                "name": "Chunjing Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Chao Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Wen Gao",
+                "type": "Person"
+            },
+            {
+                "name": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+                "type": "Organization"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Hanting Chen",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Yunhe Wang",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Tianyu Guo",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chang Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Yiping Deng",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Zhenhua Liu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Siwei Ma",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chunjing Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chao Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Wen Gao",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 51,
+        "summary": "tion using part affinity fields. IEEE Transactions on Pattern\nAnalysis and Machine Intelligence, 2019. 6\n[13] Hanting Chen, Yunhe Wang, Tianyu Guo, Chang Xu, Yiping\nDeng, Zhenhua Liu, Siwei Ma, Chunjing Xu, Chao Xu, and\nWen Gao. Pre-trained image processing transformer.",
+        "question": "Who are the researchers that propose the pre-trained image processing transformer?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Hanting Chen, Yunhe Wang, Tianyu Guo, Chang Xu, Yiping Deng, Zhenhua Liu, Siwei Ma, Chunjing Xu, Chao Xu, and Wen Gao",
+        "expected_entities": [
+            {
+                "name": "Hanting Chen",
+                "type": "Person"
+            },
+            {
+                "name": "Yunhe Wang",
+                "type": "Person"
+            },
+            {
+                "name": "Tianyu Guo",
+                "type": "Person"
+            },
+            {
+                "name": "Chang Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Yiping Deng",
+                "type": "Person"
+            },
+            {
+                "name": "Zhenhua Liu",
+                "type": "Person"
+            },
+            {
+                "name": "Siwei Ma",
+                "type": "Person"
+            },
+            {
+                "name": "Chunjing Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Chao Xu",
+                "type": "Person"
+            },
+            {
+                "name": "Wen Gao",
+                "type": "Person"
+            },
+            {
+                "name": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+                "type": "Organization"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Hanting Chen",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Yunhe Wang",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Tianyu Guo",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chang Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Yiping Deng",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Zhenhua Liu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Siwei Ma",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chunjing Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Chao Xu",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Wen Gao",
+                "target": "Pre-trained image processing transformer",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 52,
+        "summary": "An\nimage is worth one word: Personalizing text-to-image generation using textual inversion. arXiv preprint arXiv:2208.01618,\n2022. 2, 3\n[22] Rinon Gal, Or Patashnik, Haggai Maron, Amit H Bermano,\nGal Chechik, and Daniel Cohen-Or. Stylegan-nada: Clipguided domain adaptation of image generators.",
+        "question": "What model was proposed by Rinon Gal, Or Patashnik, Haggai Maron, Amit H Bermano, Gal Chechik, and Daniel Cohen-Or?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Stylegan-nada",
+        "expected_entities": [
+            {
+                "name": "Rinon Gal",
+                "type": "Person"
+            },
+            {
+                "name": "Or Patashnik",
+                "type": "Person"
+            },
+            {
+                "name": "Haggai Maron",
+                "type": "Person"
+            },
+            {
+                "name": "Amit H Bermano",
+                "type": "Person"
+            },
+            {
+                "name": "Gal Chechik",
+                "type": "Person"
+            },
+            {
+                "name": "Daniel Cohen-Or",
+                "type": "Person"
+            },
+            {
+                "name": "Stylegan-nada",
+                "type": "Model"
+            },
+            {
+                "name": "arXiv",
+                "type": "Organization"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Rinon Gal",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Or Patashnik",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Haggai Maron",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Amit H Bermano",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Gal Chechik",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Daniel Cohen-Or",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Stylegan-nada",
+                "target": "arXiv",
+                "relation": "PUBLISHED_IN"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "paper": "controlnet.pdf",
+        "page": 9,
+        "parent_chunk": 52,
+        "summary": "An\nimage is worth one word: Personalizing text-to-image generation using textual inversion. arXiv preprint arXiv:2208.01618,\n2022. 2, 3\n[22] Rinon Gal, Or Patashnik, Haggai Maron, Amit H Bermano,\nGal Chechik, and Daniel Cohen-Or. Stylegan-nada: Clipguided domain adaptation of image generators.",
+        "question": "Where was the Stylegan-nada model published?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "arXiv",
+        "expected_entities": [
+            {
+                "name": "Rinon Gal",
+                "type": "Person"
+            },
+            {
+                "name": "Or Patashnik",
+                "type": "Person"
+            },
+            {
+                "name": "Haggai Maron",
+                "type": "Person"
+            },
+            {
+                "name": "Amit H Bermano",
+                "type": "Person"
+            },
+            {
+                "name": "Gal Chechik",
+                "type": "Person"
+            },
+            {
+                "name": "Daniel Cohen-Or",
+                "type": "Person"
+            },
+            {
+                "name": "Stylegan-nada",
+                "type": "Model"
+            },
+            {
+                "name": "arXiv",
+                "type": "Organization"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Rinon Gal",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Or Patashnik",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Haggai Maron",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Amit H Bermano",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Gal Chechik",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Daniel Cohen-Or",
+                "target": "Stylegan-nada",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Stylegan-nada",
+                "target": "arXiv",
+                "relation": "PUBLISHED_IN"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "paper": "controlnet.pdf",
+        "page": 11,
+        "parent_chunk": 58,
+        "summary": "3\n[66] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya\nRamesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,\nAmanda Askell, Pamela Mishkin, Jack Clark, et al. Learning\ntransferable visual models from natural language supervision. In International Conference on Machine Learning, pages\n8748–8763.",
+        "question": "What conference did Alec Radford and his colleagues present their work at?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "International Conference on Machine Learning",
+        "expected_entities": [
+            {
+                "name": "Alec Radford",
+                "type": "Person"
+            },
+            {
+                "name": "Jong Wook Kim",
+                "type": "Person"
+            },
+            {
+                "name": "Chris Hallacy",
+                "type": "Person"
+            },
+            {
+                "name": "Aditya Ramesh",
+                "type": "Person"
+            },
+            {
+                "name": "Gabriel Goh",
+                "type": "Person"
+            },
+            {
+                "name": "Sandhini Agarwal",
+                "type": "Person"
+            },
+            {
+                "name": "Girish Sastry",
+                "type": "Person"
+            },
+            {
+                "name": "Amanda Askell",
+                "type": "Person"
+            },
+            {
+                "name": "Pamela Mishkin",
+                "type": "Person"
+            },
+            {
+                "name": "Jack Clark",
+                "type": "Person"
+            },
+            {
+                "name": "International Conference on Machine Learning",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Alec Radford",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Jong Wook Kim",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Chris Hallacy",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Aditya Ramesh",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Gabriel Goh",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Sandhini Agarwal",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Girish Sastry",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Amanda Askell",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Pamela Mishkin",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Jack Clark",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "paper": "controlnet.pdf",
+        "page": 11,
+        "parent_chunk": 58,
+        "summary": "3\n[66] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya\nRamesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry,\nAmanda Askell, Pamela Mishkin, Jack Clark, et al. Learning\ntransferable visual models from natural language supervision. In International Conference on Machine Learning, pages\n8748–8763.",
+        "question": "Who are the authors that presented their work on learning transferable visual models from natural language supervision at the International Conference on Machine Learning?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al.",
+        "expected_entities": [
+            {
+                "name": "Alec Radford",
+                "type": "Person"
+            },
+            {
+                "name": "Jong Wook Kim",
+                "type": "Person"
+            },
+            {
+                "name": "Chris Hallacy",
+                "type": "Person"
+            },
+            {
+                "name": "Aditya Ramesh",
+                "type": "Person"
+            },
+            {
+                "name": "Gabriel Goh",
+                "type": "Person"
+            },
+            {
+                "name": "Sandhini Agarwal",
+                "type": "Person"
+            },
+            {
+                "name": "Girish Sastry",
+                "type": "Person"
+            },
+            {
+                "name": "Amanda Askell",
+                "type": "Person"
+            },
+            {
+                "name": "Pamela Mishkin",
+                "type": "Person"
+            },
+            {
+                "name": "Jack Clark",
+                "type": "Person"
+            },
+            {
+                "name": "International Conference on Machine Learning",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Alec Radford",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Jong Wook Kim",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Chris Hallacy",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Aditya Ramesh",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Gabriel Goh",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Sandhini Agarwal",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Girish Sastry",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Amanda Askell",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Pamela Mishkin",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Jack Clark",
+                "target": "International Conference on Machine Learning",
+                "relation": "PRESENTS_AT"
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "paper": "high-resolution.pdf",
+        "page": 2,
+        "parent_chunk": 9,
+        "summary": "2. Related Work\nGenerative Models for Image Synthesis The high dimensional nature of images presents distinct challenges\nto generative modeling. Generative Adversarial Networks\n(GAN) [26] allow for efﬁcient sampling of high resolution\nimages with good perceptual quality [3, 41], but are difﬁ",
+        "question": "What type of models are mentioned in the related work section as allowing for efficient sampling of high resolution images with good perceptual quality?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Generative Adversarial Networks (GAN)",
+        "expected_entities": [
+            {
+                "name": "Generative Adversarial Networks",
+                "type": "Model"
+            },
+            {
+                "name": "GAN",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 34,
+        "paper": "high-resolution.pdf",
+        "page": 2,
+        "parent_chunk": 9,
+        "summary": "2. Related Work\nGenerative Models for Image Synthesis The high dimensional nature of images presents distinct challenges\nto generative modeling. Generative Adversarial Networks\n(GAN) [26] allow for efﬁcient sampling of high resolution\nimages with good perceptual quality [3, 41], but are difﬁ",
+        "question": "What challenge do generative models face when it comes to image synthesis, according to the related work section?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "The high dimensional nature of images",
+        "expected_entities": [
+            {
+                "name": "Generative Adversarial Networks",
+                "type": "Model"
+            },
+            {
+                "name": "GAN",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 35,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 14,
+        "summary": "z ∈Rh×w×c. Importantly, the encoder downsamples the\nimage by a factor f = H/h = W/w, and we investigate\ndifferent downsampling factors f = 2m, with m ∈N. In order to avoid arbitrarily high-variance latent spaces,\nwe experiment with two different kinds of regularizations.",
+        "question": "What is the factor by which the encoder downsamples the image?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "f = H/h = W/w",
+        "expected_entities": [
+            {
+                "name": "z",
+                "type": "Concept"
+            },
+            {
+                "name": "Rh",
+                "type": "Concept"
+            },
+            {
+                "name": "H",
+                "type": "Concept"
+            },
+            {
+                "name": "W",
+                "type": "Concept"
+            },
+            {
+                "name": "c",
+                "type": "Concept"
+            },
+            {
+                "name": "f",
+                "type": "Concept"
+            },
+            {
+                "name": "m",
+                "type": "Concept"
+            },
+            {
+                "name": "N",
+                "type": "Concept"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "image",
+                "relation": "DOWNSAMPLES"
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 14,
+        "summary": "z ∈Rh×w×c. Importantly, the encoder downsamples the\nimage by a factor f = H/h = W/w, and we investigate\ndifferent downsampling factors f = 2m, with m ∈N. In order to avoid arbitrarily high-variance latent spaces,\nwe experiment with two different kinds of regularizations.",
+        "question": "What values of downsampling factor f are investigated in the experiment?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "f = 2^m, with m ∈ N",
+        "expected_entities": [
+            {
+                "name": "z",
+                "type": "Concept"
+            },
+            {
+                "name": "Rh",
+                "type": "Concept"
+            },
+            {
+                "name": "H",
+                "type": "Concept"
+            },
+            {
+                "name": "W",
+                "type": "Concept"
+            },
+            {
+                "name": "c",
+                "type": "Concept"
+            },
+            {
+                "name": "f",
+                "type": "Concept"
+            },
+            {
+                "name": "m",
+                "type": "Concept"
+            },
+            {
+                "name": "N",
+                "type": "Concept"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "image",
+                "relation": "DOWNSAMPLES"
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "Figure 3. We condition LDMs either via concatenation or by a\nmore general cross-attention mechanism. See Sec. 3.3\n\nobjective on the perceptually most relevant bits using the\nreweighted bound, which now reads\n\nLLDM := EE(x),ǫ∼N (0,1),t\nh\n∥ǫ −ǫθ(zt, t)∥2\n2\ni\n. (2)",
+        "question": "What are LDMs conditioned by, according to the given information?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "concatenation or a more general cross-attention mechanism",
+        "expected_entities": [
+            {
+                "name": "LDMs",
+                "type": "Model"
+            },
+            {
+                "name": "Sec. 3.3",
+                "type": "Concept"
+            },
+            {
+                "name": "LLDM",
+                "type": "Model"
+            },
+            {
+                "name": "N",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "Sec. 3.3",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "LLDM",
+                "target": "LDMs",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "Figure 3. We condition LDMs either via concatenation or by a\nmore general cross-attention mechanism. See Sec. 3.3\n\nobjective on the perceptually most relevant bits using the\nreweighted bound, which now reads\n\nLLDM := EE(x),ǫ∼N (0,1),t\nh\n∥ǫ −ǫθ(zt, t)∥2\n2\ni\n. (2)",
+        "question": "How is the objective LLDM defined in the given context?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "using the reweighted bound, which now reads LLDM := EE(x),ǫ∼N (0,1),t h ∥ǫ −ǫθ(zt, t)∥2 2 i",
+        "expected_entities": [
+            {
+                "name": "LDMs",
+                "type": "Model"
+            },
+            {
+                "name": "Sec. 3.3",
+                "type": "Concept"
+            },
+            {
+                "name": "LLDM",
+                "type": "Model"
+            },
+            {
+                "name": "N",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "Sec. 3.3",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "LLDM",
+                "target": "LDMs",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 18,
+        "summary": "The neural backbone ǫθ(◦, t) of our model is realized as a\ntime-conditional UNet [69]. Since the forward process is\nﬁxed, zt can be efﬁciently obtained from E during training,\nand samples from p(z) can be decoded to image space with\na single pass through D. 3.3.",
+        "question": "What type of model is used as the neural backbone ǫθ(◦, t) in the described system?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "time-conditional UNet",
+        "expected_entities": [
+            {
+                "name": "UNet",
+                "type": "Model"
+            },
+            {
+                "name": "θ",
+                "type": "Component"
+            },
+            {
+                "name": "E",
+                "type": "Component"
+            },
+            {
+                "name": "D",
+                "type": "Component"
+            },
+            {
+                "name": "p(z)",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "UNet",
+                "target": "θ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "θ",
+                "target": "E",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "E",
+                "target": "D",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "D",
+                "target": "p(z)",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "paper": "high-resolution.pdf",
+        "page": 4,
+        "parent_chunk": 18,
+        "summary": "The neural backbone ǫθ(◦, t) of our model is realized as a\ntime-conditional UNet [69]. Since the forward process is\nﬁxed, zt can be efﬁciently obtained from E during training,\nand samples from p(z) can be decoded to image space with\na single pass through D. 3.3.",
+        "question": "How are samples from p(z) decoded to image space in the described system?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "with a single pass through D",
+        "expected_entities": [
+            {
+                "name": "UNet",
+                "type": "Model"
+            },
+            {
+                "name": "θ",
+                "type": "Component"
+            },
+            {
+                "name": "E",
+                "type": "Component"
+            },
+            {
+                "name": "D",
+                "type": "Component"
+            },
+            {
+                "name": "p(z)",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "UNet",
+                "target": "θ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "θ",
+                "target": "E",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "E",
+                "target": "D",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "D",
+                "target": "p(z)",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 20,
+        "summary": "CelebAHQ\nFFHQ\nLSUN-Churches\nLSUN-Beds\nImageNet\n\nFigure 4. Samples from LDMs trained on CelebAHQ [38], FFHQ [40], LSUN-Churches [98], LSUN-Bedrooms [98] and class-conditional\nImageNet [12], each with a resolution of 256 × 256. Best viewed when zoomed in. For more samples cf. the supplement.",
+        "question": "What datasets were used to train LDMs, as shown in Figure 4?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "CelebAHQ, FFHQ, LSUN-Churches, LSUN-Beds, and ImageNet",
+        "expected_entities": [
+            {
+                "name": "CelebAHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "FFHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Churches",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Beds",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            },
+            {
+                "name": "LDMs",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "FFHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "LSUN-Churches",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "LSUN-Beds",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 20,
+        "summary": "CelebAHQ\nFFHQ\nLSUN-Churches\nLSUN-Beds\nImageNet\n\nFigure 4. Samples from LDMs trained on CelebAHQ [38], FFHQ [40], LSUN-Churches [98], LSUN-Bedrooms [98] and class-conditional\nImageNet [12], each with a resolution of 256 × 256. Best viewed when zoomed in. For more samples cf. the supplement.",
+        "question": "What is the resolution of the samples from LDMs trained on various datasets, as mentioned in the summary?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "256 × 256",
+        "expected_entities": [
+            {
+                "name": "CelebAHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "FFHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Churches",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Beds",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            },
+            {
+                "name": "LDMs",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "FFHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "LSUN-Churches",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "LSUN-Beds",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDMs",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 21,
+        "summary": "LLDM := EE(x),y,ǫ∼N (0,1),t\nh\n∥ǫ−ǫθ(zt, t, τθ(y))∥2\n2\ni\n, (3)\n\nwhere both τθ and ǫθ are jointly optimized via Eq. 3. This\nconditioning mechanism is ﬂexible as τθ can be parameterized with domain-speciﬁc experts, e.g. (unmasked) transformers [94] when y are text prompts (see Sec. 4.3.1)\n\n4.",
+        "question": "What components are jointly optimized in the LLDM model?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "τθ and ǫθ",
+        "expected_entities": [
+            {
+                "name": "LLDM",
+                "type": "Model"
+            },
+            {
+                "name": "τθ",
+                "type": "Component"
+            },
+            {
+                "name": "ǫθ",
+                "type": "Component"
+            },
+            {
+                "name": "transformers",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LLDM",
+                "target": "τθ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "LLDM",
+                "target": "ǫθ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "τθ",
+                "target": "transformers",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 21,
+        "summary": "LLDM := EE(x),y,ǫ∼N (0,1),t\nh\n∥ǫ−ǫθ(zt, t, τθ(y))∥2\n2\ni\n, (3)\n\nwhere both τθ and ǫθ are jointly optimized via Eq. 3. This\nconditioning mechanism is ﬂexible as τθ can be parameterized with domain-speciﬁc experts, e.g. (unmasked) transformers [94] when y are text prompts (see Sec. 4.3.1)\n\n4.",
+        "question": "How can the τθ component be parameterized in the LLDM model?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "with domain-specific experts, such as unmasked transformers when y are text prompts",
+        "expected_entities": [
+            {
+                "name": "LLDM",
+                "type": "Model"
+            },
+            {
+                "name": "τθ",
+                "type": "Component"
+            },
+            {
+                "name": "ǫθ",
+                "type": "Component"
+            },
+            {
+                "name": "transformers",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LLDM",
+                "target": "τθ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "LLDM",
+                "target": "ǫθ",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "τθ",
+                "target": "transformers",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 22,
+        "summary": "Therefore, we evaluate VQ-regularized LDMs\nin the remainder of the paper, unless stated differently. A\nvisual comparison between the effects of ﬁrst stage regularization schemes on LDM training and their generalization abilities to resolutions higher than 2562 can be found\nin Appendix C.1.",
+        "question": "What type of models are evaluated in the remainder of the paper?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "VQ-regularized LDMs",
+        "expected_entities": [
+            {
+                "name": "LDMs",
+                "type": "Model"
+            },
+            {
+                "name": "Appendix C.1",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "Appendix C.1",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 46,
+        "paper": "high-resolution.pdf",
+        "page": 5,
+        "parent_chunk": 22,
+        "summary": "Therefore, we evaluate VQ-regularized LDMs\nin the remainder of the paper, unless stated differently. A\nvisual comparison between the effects of ﬁrst stage regularization schemes on LDM training and their generalization abilities to resolutions higher than 2562 can be found\nin Appendix C.1.",
+        "question": "Where can a visual comparison of the effects of first stage regularization schemes on LDM training be found?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Appendix C.1",
+        "expected_entities": [
+            {
+                "name": "LDMs",
+                "type": "Model"
+            },
+            {
+                "name": "Appendix C.1",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDMs",
+                "target": "Appendix C.1",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 47,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 27,
+        "summary": "niﬁcant FID [28] gap of 38 between pixel-based diffusion\n(LDM-1) and LDM-8 after 2M training steps. In Fig. 6, we compare models trained on CelebAHQ [38] and ImageNet in terms sampling speed for different numbers of denoising steps with the DDIM sampler [81]\nand plot it against FID-scores [28].",
+        "question": "What metric is used to evaluate the performance of LDM-1 and LDM-8 models?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "FID",
+        "expected_entities": [
+            {
+                "name": "LDM-1",
+                "type": "Model"
+            },
+            {
+                "name": "LDM-8",
+                "type": "Model"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "CelebAHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            },
+            {
+                "name": "DDIM",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-1",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "DDIM",
+                "relation": "USED_WITH"
+            },
+            {
+                "source": "LDM-8",
+                "target": "DDIM",
+                "relation": "USED_WITH"
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 27,
+        "summary": "niﬁcant FID [28] gap of 38 between pixel-based diffusion\n(LDM-1) and LDM-8 after 2M training steps. In Fig. 6, we compare models trained on CelebAHQ [38] and ImageNet in terms sampling speed for different numbers of denoising steps with the DDIM sampler [81]\nand plot it against FID-scores [28].",
+        "question": "How do the sampling speeds of LDM-1 and LDM-8 models compare when trained on different datasets and using the DDIM sampler?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "The comparison is plotted against FID-scores for different numbers of denoising steps.",
+        "expected_entities": [
+            {
+                "name": "LDM-1",
+                "type": "Model"
+            },
+            {
+                "name": "LDM-8",
+                "type": "Model"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "CelebAHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            },
+            {
+                "name": "DDIM",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-1",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "CelebAHQ",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-8",
+                "target": "ImageNet",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM-1",
+                "target": "DDIM",
+                "relation": "USED_WITH"
+            },
+            {
+                "source": "LDM-8",
+                "target": "DDIM",
+                "relation": "USED_WITH"
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 29,
+        "summary": "4.2. Image Generation with Latent Diffusion\nWe train unconditional models of 2562 images on\nCelebA-HQ\n[38],\nFFHQ\n[40],\nLSUN-Churches\nand\n-Bedrooms [98] and evaluate the i) sample quality and ii)\ntheir coverage of the data manifold using ii) FID [28] and\nii) Precision-and-Recall [49]. Tab.",
+        "question": "What datasets were used to train unconditional models of 256x256 images?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "CelebA-HQ, FFHQ, LSUN-Churches, and LSUN-Bedrooms",
+        "expected_entities": [
+            {
+                "name": "CelebA-HQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "FFHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Churches",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Bedrooms",
+                "type": "Dataset"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "Precision-and-Recall",
+                "type": "Metric"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "CelebA-HQ",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "FFHQ",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Churches",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Bedrooms",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "CelebA-HQ",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "FFHQ",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Churches",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Bedrooms",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 29,
+        "summary": "4.2. Image Generation with Latent Diffusion\nWe train unconditional models of 2562 images on\nCelebA-HQ\n[38],\nFFHQ\n[40],\nLSUN-Churches\nand\n-Bedrooms [98] and evaluate the i) sample quality and ii)\ntheir coverage of the data manifold using ii) FID [28] and\nii) Precision-and-Recall [49]. Tab.",
+        "question": "What metrics were used to evaluate the sample quality and coverage of the data manifold?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "FID and Precision-and-Recall",
+        "expected_entities": [
+            {
+                "name": "CelebA-HQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "FFHQ",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Churches",
+                "type": "Dataset"
+            },
+            {
+                "name": "LSUN-Bedrooms",
+                "type": "Dataset"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "Precision-and-Recall",
+                "type": "Metric"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "CelebA-HQ",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "FFHQ",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Churches",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Bedrooms",
+                "target": "FID",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "CelebA-HQ",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "FFHQ",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Churches",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LSUN-Bedrooms",
+                "target": "Precision-and-Recall",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 30,
+        "summary": "“An oil painting\nof a space shuttle”\n\nFigure 7. Top: Samples from our LDM for layout-to-image synthesis on COCO [4]. Quantitative evaluation in the supplement. Bottom: Samples from our text-to-image LDM model for userdeﬁned text prompts, which is trained on LAION-400M [76].",
+        "question": "What datasets was the LDM model trained on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "COCO, LAION-400M",
+        "expected_entities": [
+            {
+                "name": "LDM",
+                "type": "Model"
+            },
+            {
+                "name": "COCO",
+                "type": "Dataset"
+            },
+            {
+                "name": "LAION-400M",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM",
+                "target": "COCO",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM",
+                "target": "LAION-400M",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "paper": "high-resolution.pdf",
+        "page": 6,
+        "parent_chunk": 30,
+        "summary": "“An oil painting\nof a space shuttle”\n\nFigure 7. Top: Samples from our LDM for layout-to-image synthesis on COCO [4]. Quantitative evaluation in the supplement. Bottom: Samples from our text-to-image LDM model for userdeﬁned text prompts, which is trained on LAION-400M [76].",
+        "question": "What type of model is LDM and what type of data does it synthesize?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "LDM is a model that synthesizes layout-to-image and text-to-image",
+        "expected_entities": [
+            {
+                "name": "LDM",
+                "type": "Model"
+            },
+            {
+                "name": "COCO",
+                "type": "Dataset"
+            },
+            {
+                "name": "LAION-400M",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM",
+                "target": "COCO",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "LDM",
+                "target": "LAION-400M",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 34,
+        "summary": "We train on an input resolution\nof 2562 (crops from 3842) but ﬁnd that our model generalizes to larger resolutions and can generate images up to the\nmegapixel regime when evaluated in a convolutional manner (see Fig. 8). We exploit this behavior to also apply the\nsuper-resolution models in Sec.",
+        "question": "What input resolution is the model trained on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "256^2 (crops from 384^2)",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "input resolution",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "model",
+                "target": "super-resolution models",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 34,
+        "summary": "We train on an input resolution\nof 2562 (crops from 3842) but ﬁnd that our model generalizes to larger resolutions and can generate images up to the\nmegapixel regime when evaluated in a convolutional manner (see Fig. 8). We exploit this behavior to also apply the\nsuper-resolution models in Sec.",
+        "question": "How can the model be applied based on its behavior of generalizing to larger resolutions?",
+        "question_type": "Application",
+        "difficulty": "Medium",
+        "reference_answer": "To super-resolution models",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "input resolution",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "model",
+                "target": "super-resolution models",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 35,
+        "summary": "bicubic\nLDM-SR\nSR3\n\nFigure 9. ImageNet 64→256 super-resolution on ImageNet-Val. LDM-SR has advantages at rendering realistic textures but SR3\ncan synthesize more coherent ﬁne structures. See appendix for\nadditional samples and cropouts. SR3 results from [70]. nation (cf. Sec. 3.3).",
+        "question": "What dataset was LDM-SR evaluated on for image super-resolution?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "ImageNet-Val",
+        "expected_entities": [
+            {
+                "name": "LDM-SR",
+                "type": "Model"
+            },
+            {
+                "name": "SR3",
+                "type": "Model"
+            },
+            {
+                "name": "ImageNet-Val",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-SR",
+                "target": "ImageNet-Val",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "SR3",
+                "target": "ImageNet-Val",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 56,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 35,
+        "summary": "bicubic\nLDM-SR\nSR3\n\nFigure 9. ImageNet 64→256 super-resolution on ImageNet-Val. LDM-SR has advantages at rendering realistic textures but SR3\ncan synthesize more coherent ﬁne structures. See appendix for\nadditional samples and cropouts. SR3 results from [70]. nation (cf. Sec. 3.3).",
+        "question": "How do the results of LDM-SR and SR3 differ in terms of rendering realistic textures and synthesizing fine structures?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "LDM-SR has advantages at rendering realistic textures, but SR3 can synthesize more coherent fine structures",
+        "expected_entities": [
+            {
+                "name": "LDM-SR",
+                "type": "Model"
+            },
+            {
+                "name": "SR3",
+                "type": "Model"
+            },
+            {
+                "name": "ImageNet-Val",
+                "type": "Dataset"
+            },
+            {
+                "name": "ImageNet",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-SR",
+                "target": "ImageNet-Val",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "SR3",
+                "target": "ImageNet-Val",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 36,
+        "summary": "A simple image regression model achieves the highest PSNR and SSIM scores;\nhowever these metrics do not align well with human perception [102] and favor blurriness over imperfectly aligned\nhigh frequency details [70]. Further, we conduct a user\nstudy comparing the pixel-baseline with LDM-SR.",
+        "question": "What metrics are used to evaluate the performance of the LDM-SR model?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "PSNR and SSIM",
+        "expected_entities": [
+            {
+                "name": "PSNR",
+                "type": "Metric"
+            },
+            {
+                "name": "SSIM",
+                "type": "Metric"
+            },
+            {
+                "name": "LDM-SR",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-SR",
+                "target": "PSNR",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-SR",
+                "target": "SSIM",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 58,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 36,
+        "summary": "A simple image regression model achieves the highest PSNR and SSIM scores;\nhowever these metrics do not align well with human perception [102] and favor blurriness over imperfectly aligned\nhigh frequency details [70]. Further, we conduct a user\nstudy comparing the pixel-baseline with LDM-SR.",
+        "question": "How does the simple image regression model perform in terms of PSNR and SSIM scores?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "It achieves the highest PSNR and SSIM scores",
+        "expected_entities": [
+            {
+                "name": "PSNR",
+                "type": "Metric"
+            },
+            {
+                "name": "SSIM",
+                "type": "Metric"
+            },
+            {
+                "name": "LDM-SR",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "LDM-SR",
+                "target": "PSNR",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "LDM-SR",
+                "target": "SSIM",
+                "relation": "EVALUATED_ON"
+            }
+        ]
+    },
+    {
+        "id": 59,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 37,
+        "summary": "Image Regression [70]\n15.2\n121.1\n27.9\n0.801\n625M\nN/A\nSR3 [70]\n5.2\n180.1\n26.4\n0.762\n625M\nN/A\n\nLDM-4 (ours, 100 steps)\n2.8†/4.8‡\n166.3\n24.4±3.8\n0.69±0.14\n169M\n4.62\nLDM-4 (ours, big, 100 steps)\n2.4†/4.3‡\n174.9\n24.7±4.1\n0.71±0.15\n552M\n4.5\nLDM-4 (ours, 50 steps, guiding)\n4.4†/6.4‡\n153.7\n25.8±3.7\n0.74±0.1",
+        "question": "What are the models mentioned in the summary?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "LDM-4, SR3",
+        "expected_entities": [
+            {
+                "name": "LDM-4",
+                "type": "Model"
+            },
+            {
+                "name": "SR3",
+                "type": "Model"
+            },
+            {
+                "name": "Image Regression",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 60,
+        "paper": "high-resolution.pdf",
+        "page": 7,
+        "parent_chunk": 37,
+        "summary": "Image Regression [70]\n15.2\n121.1\n27.9\n0.801\n625M\nN/A\nSR3 [70]\n5.2\n180.1\n26.4\n0.762\n625M\nN/A\n\nLDM-4 (ours, 100 steps)\n2.8†/4.8‡\n166.3\n24.4±3.8\n0.69±0.14\n169M\n4.62\nLDM-4 (ours, big, 100 steps)\n2.4†/4.3‡\n174.9\n24.7±4.1\n0.71±0.15\n552M\n4.5\nLDM-4 (ours, 50 steps, guiding)\n4.4†/6.4‡\n153.7\n25.8±3.7\n0.74±0.1",
+        "question": "What is the task that the models LDM-4 and SR3 are being compared on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Image Regression",
+        "expected_entities": [
+            {
+                "name": "LDM-4",
+                "type": "Model"
+            },
+            {
+                "name": "SR3",
+                "type": "Model"
+            },
+            {
+                "name": "Image Regression",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 61,
+        "paper": "high-resolution.pdf",
+        "page": 8,
+        "parent_chunk": 44,
+        "summary": "an epoch at resolution 5122 allows the model to adjust to\nthe new feature statistics and sets a new state of the art FID\non image inpainting (big, w/o attn, w/ ft in Tab. 7, Fig. 10.). Figure 10. Qualitative results on object removal with our big, w/\nft inpainting model. For more results, see Fig.",
+        "question": "What task is the model used for, according to the summary?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "image inpainting",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "Figure 10",
+                "type": "Component"
+            },
+            {
+                "name": "Figure 7",
+                "type": "Component"
+            },
+            {
+                "name": "image inpainting",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "FID",
+                "relation": "SETS"
+            },
+            {
+                "source": "model",
+                "target": "image inpainting",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 62,
+        "paper": "high-resolution.pdf",
+        "page": 8,
+        "parent_chunk": 44,
+        "summary": "an epoch at resolution 5122 allows the model to adjust to\nthe new feature statistics and sets a new state of the art FID\non image inpainting (big, w/o attn, w/ ft in Tab. 7, Fig. 10.). Figure 10. Qualitative results on object removal with our big, w/\nft inpainting model. For more results, see Fig.",
+        "question": "What is achieved by the model at an epoch at resolution 5122, in terms of FID on image inpainting?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "a new state of the art FID",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            },
+            {
+                "name": "FID",
+                "type": "Metric"
+            },
+            {
+                "name": "Figure 10",
+                "type": "Component"
+            },
+            {
+                "name": "Figure 7",
+                "type": "Component"
+            },
+            {
+                "name": "image inpainting",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "FID",
+                "relation": "SETS"
+            },
+            {
+                "source": "model",
+                "target": "image inpainting",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 63,
+        "paper": "high-resolution.pdf",
+        "page": 9,
+        "parent_chunk": 46,
+        "summary": "[1] Eirikur Agustsson and Radu Timofte. NTIRE 2017 challenge on single image super-resolution: Dataset and study. In 2017 IEEE Conference on Computer Vision and Pattern\nRecognition Workshops, CVPR Workshops 2017, Honolulu,\nHI, USA, July 21-26, 2017, pages 1122–1131. IEEE Computer Society, 2017.",
+        "question": "What conference did Eirikur Agustsson and Radu Timofte mention in their study?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "NTIRE 2017",
+        "expected_entities": [
+            {
+                "name": "Eirikur Agustsson",
+                "type": "Person"
+            },
+            {
+                "name": "Radu Timofte",
+                "type": "Person"
+            },
+            {
+                "name": "NTIRE 2017",
+                "type": "Conference"
+            },
+            {
+                "name": "IEEE Computer Society",
+                "type": "Organization"
+            },
+            {
+                "name": "Honolulu",
+                "type": "Location"
+            },
+            {
+                "name": "CVPR Workshops 2017",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Eirikur Agustsson",
+                "target": "NTIRE 2017",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Radu Timofte",
+                "target": "NTIRE 2017",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "NTIRE 2017",
+                "target": "CVPR Workshops 2017",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "CVPR Workshops 2017",
+                "target": "Honolulu",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "CVPR Workshops 2017",
+                "target": "IEEE Computer Society",
+                "relation": "AFFILIATED_WITH"
+            }
+        ]
+    },
+    {
+        "id": 64,
+        "paper": "high-resolution.pdf",
+        "page": 9,
+        "parent_chunk": 46,
+        "summary": "[1] Eirikur Agustsson and Radu Timofte. NTIRE 2017 challenge on single image super-resolution: Dataset and study. In 2017 IEEE Conference on Computer Vision and Pattern\nRecognition Workshops, CVPR Workshops 2017, Honolulu,\nHI, USA, July 21-26, 2017, pages 1122–1131. IEEE Computer Society, 2017.",
+        "question": "What is the relationship between CVPR Workshops 2017 and IEEE Computer Society according to the given information?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "AFFILIATED_WITH",
+        "expected_entities": [
+            {
+                "name": "Eirikur Agustsson",
+                "type": "Person"
+            },
+            {
+                "name": "Radu Timofte",
+                "type": "Person"
+            },
+            {
+                "name": "NTIRE 2017",
+                "type": "Conference"
+            },
+            {
+                "name": "IEEE Computer Society",
+                "type": "Organization"
+            },
+            {
+                "name": "Honolulu",
+                "type": "Location"
+            },
+            {
+                "name": "CVPR Workshops 2017",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Eirikur Agustsson",
+                "target": "NTIRE 2017",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Radu Timofte",
+                "target": "NTIRE 2017",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "NTIRE 2017",
+                "target": "CVPR Workshops 2017",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "CVPR Workshops 2017",
+                "target": "Honolulu",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "CVPR Workshops 2017",
+                "target": "IEEE Computer Society",
+                "relation": "AFFILIATED_WITH"
+            }
+        ]
+    },
+    {
+        "id": 65,
+        "paper": "high-resolution.pdf",
+        "page": 9,
+        "parent_chunk": 47,
+        "summary": "Diagnosing and enhancing VAE\nmodels. In ICLR (Poster). OpenReview.net, 2019. 2, 3\n[12] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li,\nand Fei-Fei Li. Imagenet: A large-scale hierarchical image database. In CVPR, pages 248–255. IEEE Computer\nSociety, 2009. 1, 5, 7, 19\n[13] Emily Denton.",
+        "question": "What conference did the authors present their work on diagnosing and enhancing VAE models?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "ICLR",
+        "expected_entities": [
+            {
+                "name": "VAE",
+                "type": "Model"
+            },
+            {
+                "name": "ICLR",
+                "type": "Conference"
+            },
+            {
+                "name": "OpenReview.net",
+                "type": "Organization"
+            },
+            {
+                "name": "Jia Deng",
+                "type": "Person"
+            },
+            {
+                "name": "Wei Dong",
+                "type": "Person"
+            },
+            {
+                "name": "Richard Socher",
+                "type": "Person"
+            },
+            {
+                "name": "Li-Jia Li",
+                "type": "Person"
+            },
+            {
+                "name": "Kai Li",
+                "type": "Person"
+            },
+            {
+                "name": "Fei-Fei Li",
+                "type": "Person"
+            },
+            {
+                "name": "Imagenet",
+                "type": "Dataset"
+            },
+            {
+                "name": "CVPR",
+                "type": "Conference"
+            },
+            {
+                "name": "IEEE Computer Society",
+                "type": "Organization"
+            },
+            {
+                "name": "Emily Denton",
+                "type": "Person"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Jia Deng",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Wei Dong",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Richard Socher",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Li-Jia Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Kai Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Fei-Fei Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 66,
+        "paper": "high-resolution.pdf",
+        "page": 9,
+        "parent_chunk": 47,
+        "summary": "Diagnosing and enhancing VAE\nmodels. In ICLR (Poster). OpenReview.net, 2019. 2, 3\n[12] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li,\nand Fei-Fei Li. Imagenet: A large-scale hierarchical image database. In CVPR, pages 248–255. IEEE Computer\nSociety, 2009. 1, 5, 7, 19\n[13] Emily Denton.",
+        "question": "Who are the proposers of the Imagenet dataset?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Fei-Fei Li",
+        "expected_entities": [
+            {
+                "name": "VAE",
+                "type": "Model"
+            },
+            {
+                "name": "ICLR",
+                "type": "Conference"
+            },
+            {
+                "name": "OpenReview.net",
+                "type": "Organization"
+            },
+            {
+                "name": "Jia Deng",
+                "type": "Person"
+            },
+            {
+                "name": "Wei Dong",
+                "type": "Person"
+            },
+            {
+                "name": "Richard Socher",
+                "type": "Person"
+            },
+            {
+                "name": "Li-Jia Li",
+                "type": "Person"
+            },
+            {
+                "name": "Kai Li",
+                "type": "Person"
+            },
+            {
+                "name": "Fei-Fei Li",
+                "type": "Person"
+            },
+            {
+                "name": "Imagenet",
+                "type": "Dataset"
+            },
+            {
+                "name": "CVPR",
+                "type": "Conference"
+            },
+            {
+                "name": "IEEE Computer Society",
+                "type": "Organization"
+            },
+            {
+                "name": "Emily Denton",
+                "type": "Person"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Jia Deng",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Wei Dong",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Richard Socher",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Li-Jia Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Kai Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Fei-Fei Li",
+                "target": "Imagenet",
+                "relation": "PROPOSES"
+            }
+        ]
+    },
+    {
+        "id": 67,
+        "paper": "high-resolution.pdf",
+        "page": 11,
+        "parent_chunk": 54,
+        "summary": "[60] Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and JunYan Zhu. Semantic image synthesis with spatially-adaptive\nnormalization. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR),\nJune 2019. 18\n[61] Gaurav Parmar, Dacheng Li, Kwonjoon Lee, and Zhuowen\nTu.",
+        "question": "What conference was used by Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and JunYan Zhu?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "expected_entities": [
+            {
+                "name": "Taesung Park",
+                "type": "Person"
+            },
+            {
+                "name": "Ming-Yu Liu",
+                "type": "Person"
+            },
+            {
+                "name": "Ting-Chun Wang",
+                "type": "Person"
+            },
+            {
+                "name": "JunYan Zhu",
+                "type": "Person"
+            },
+            {
+                "name": "Gaurav Parmar",
+                "type": "Person"
+            },
+            {
+                "name": "Dacheng Li",
+                "type": "Person"
+            },
+            {
+                "name": "Kwonjoon Lee",
+                "type": "Person"
+            },
+            {
+                "name": "Zhuowen Tu",
+                "type": "Person"
+            },
+            {
+                "name": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Taesung Park",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ming-Yu Liu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ting-Chun Wang",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "JunYan Zhu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Gaurav Parmar",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Dacheng Li",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Kwonjoon Lee",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Zhuowen Tu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Taesung Park",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "Ming-Yu Liu",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "Ting-Chun Wang",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "JunYan Zhu",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 68,
+        "paper": "high-resolution.pdf",
+        "page": 11,
+        "parent_chunk": 54,
+        "summary": "[60] Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and JunYan Zhu. Semantic image synthesis with spatially-adaptive\nnormalization. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR),\nJune 2019. 18\n[61] Gaurav Parmar, Dacheng Li, Kwonjoon Lee, and Zhuowen\nTu.",
+        "question": "Who proposed Semantic image synthesis with spatially-adaptive normalization?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and JunYan Zhu",
+        "expected_entities": [
+            {
+                "name": "Taesung Park",
+                "type": "Person"
+            },
+            {
+                "name": "Ming-Yu Liu",
+                "type": "Person"
+            },
+            {
+                "name": "Ting-Chun Wang",
+                "type": "Person"
+            },
+            {
+                "name": "JunYan Zhu",
+                "type": "Person"
+            },
+            {
+                "name": "Gaurav Parmar",
+                "type": "Person"
+            },
+            {
+                "name": "Dacheng Li",
+                "type": "Person"
+            },
+            {
+                "name": "Kwonjoon Lee",
+                "type": "Person"
+            },
+            {
+                "name": "Zhuowen Tu",
+                "type": "Person"
+            },
+            {
+                "name": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Taesung Park",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ming-Yu Liu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ting-Chun Wang",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "JunYan Zhu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Gaurav Parmar",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Dacheng Li",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Kwonjoon Lee",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Zhuowen Tu",
+                "target": "Semantic image synthesis with spatially-adaptive normalization",
+                "relation": "MENTIONS"
+            },
+            {
+                "source": "Taesung Park",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "Ming-Yu Liu",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "Ting-Chun Wang",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            },
+            {
+                "source": "JunYan Zhu",
+                "target": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+                "relation": "USED_IN"
+            }
+        ]
+    },
+    {
+        "id": 69,
+        "paper": "sample.pdf",
+        "page": 1,
+        "parent_chunk": 5,
+        "summary": "∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work.",
+        "question": "What model did Jakob propose replacing with self-attention?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "RNNs",
+        "expected_entities": [
+            {
+                "name": "Jakob",
+                "type": "Person"
+            },
+            {
+                "name": "Ashish",
+                "type": "Person"
+            },
+            {
+                "name": "Illia",
+                "type": "Person"
+            },
+            {
+                "name": "RNNs",
+                "type": "Model"
+            },
+            {
+                "name": "Transformer",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Jakob",
+                "target": "RNNs",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ashish",
+                "target": "Transformer",
+                "relation": "DESIGNED"
+            },
+            {
+                "source": "Illia",
+                "target": "Transformer",
+                "relation": "DESIGNED"
+            }
+        ]
+    },
+    {
+        "id": 70,
+        "paper": "sample.pdf",
+        "page": 1,
+        "parent_chunk": 5,
+        "summary": "∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started\nthe effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work.",
+        "question": "Who designed and implemented the first Transformer models?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Ashish and Illia",
+        "expected_entities": [
+            {
+                "name": "Jakob",
+                "type": "Person"
+            },
+            {
+                "name": "Ashish",
+                "type": "Person"
+            },
+            {
+                "name": "Illia",
+                "type": "Person"
+            },
+            {
+                "name": "RNNs",
+                "type": "Model"
+            },
+            {
+                "name": "Transformer",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Jakob",
+                "target": "RNNs",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Ashish",
+                "target": "Transformer",
+                "relation": "DESIGNED"
+            },
+            {
+                "source": "Illia",
+                "target": "Transformer",
+                "relation": "DESIGNED"
+            }
+        ]
+    },
+    {
+        "id": 71,
+        "paper": "sample.pdf",
+        "page": 2,
+        "parent_chunk": 7,
+        "summary": "Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [35, 2, 5].",
+        "question": "What tasks have recurrent neural networks been established as state of the art approaches for?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Language modeling and machine translation",
+        "expected_entities": [
+            {
+                "name": "Recurrent neural networks",
+                "type": "Model"
+            },
+            {
+                "name": "Long short-term memory",
+                "type": "Model"
+            },
+            {
+                "name": "Gated recurrent neural networks",
+                "type": "Model"
+            },
+            {
+                "name": "Language modeling",
+                "type": "Task"
+            },
+            {
+                "name": "Machine translation",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Recurrent neural networks",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Recurrent neural networks",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Long short-term memory",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Long short-term memory",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Gated recurrent neural networks",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Gated recurrent neural networks",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 72,
+        "paper": "sample.pdf",
+        "page": 2,
+        "parent_chunk": 7,
+        "summary": "Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks\nin particular, have been firmly established as state of the art approaches in sequence modeling and\ntransduction problems such as language modeling and machine translation [35, 2, 5].",
+        "question": "What types of neural networks have been firmly established as state of the art approaches in sequence modeling and transduction problems?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Recurrent neural networks, long short-term memory and gated recurrent neural networks",
+        "expected_entities": [
+            {
+                "name": "Recurrent neural networks",
+                "type": "Model"
+            },
+            {
+                "name": "Long short-term memory",
+                "type": "Model"
+            },
+            {
+                "name": "Gated recurrent neural networks",
+                "type": "Model"
+            },
+            {
+                "name": "Language modeling",
+                "type": "Task"
+            },
+            {
+                "name": "Machine translation",
+                "type": "Task"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Recurrent neural networks",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Recurrent neural networks",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Long short-term memory",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Long short-term memory",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Gated recurrent neural networks",
+                "target": "Language modeling",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Gated recurrent neural networks",
+                "target": "Machine translation",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 73,
+        "paper": "sample.pdf",
+        "page": 3,
+        "parent_chunk": 11,
+        "summary": "Figure 1: The Transformer - model architecture. The Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively. 3.1\nEncoder and Decoder Stacks",
+        "question": "What components are contained in the Transformer model architecture?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "encoder and decoder",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "encoder",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "Transformer",
+                "target": "decoder",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 74,
+        "paper": "sample.pdf",
+        "page": 3,
+        "parent_chunk": 11,
+        "summary": "Figure 1: The Transformer - model architecture. The Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively. 3.1\nEncoder and Decoder Stacks",
+        "question": "How do the encoder and decoder stacks in the Transformer model architecture process information?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "using stacked self-attention and point-wise, fully connected layers",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "encoder",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "Transformer",
+                "target": "decoder",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 75,
+        "paper": "sample.pdf",
+        "page": 4,
+        "parent_chunk": 15,
+        "summary": "Attention(Q, K, V ) = softmax(QKT\n\n√dk\n)V\n(1)\n\nThe two most commonly used attention functions are additive attention [2], and dot-product (multiplicative) attention. Dot-product attention is identical to our algorithm, except for the scaling factor\nof\n1\n√dk .",
+        "question": "What are the two most commonly used attention functions mentioned in the summary?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "additive attention and dot-product attention",
+        "expected_entities": [
+            {
+                "name": "Attention",
+                "type": "Method"
+            },
+            {
+                "name": "additive attention",
+                "type": "Method"
+            },
+            {
+                "name": "dot-product attention",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "dot-product attention",
+                "target": "Attention",
+                "relation": "IDENTICAL_TO"
+            }
+        ]
+    },
+    {
+        "id": 76,
+        "paper": "sample.pdf",
+        "page": 4,
+        "parent_chunk": 15,
+        "summary": "Attention(Q, K, V ) = softmax(QKT\n\n√dk\n)V\n(1)\n\nThe two most commonly used attention functions are additive attention [2], and dot-product (multiplicative) attention. Dot-product attention is identical to our algorithm, except for the scaling factor\nof\n1\n√dk .",
+        "question": "How does dot-product attention differ from the algorithm described in the summary?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "except for the scaling factor of 1/√dk",
+        "expected_entities": [
+            {
+                "name": "Attention",
+                "type": "Method"
+            },
+            {
+                "name": "additive attention",
+                "type": "Method"
+            },
+            {
+                "name": "dot-product attention",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "dot-product attention",
+                "target": "Attention",
+                "relation": "IDENTICAL_TO"
+            }
+        ]
+    },
+    {
+        "id": 77,
+        "paper": "sample.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "4To illustrate why the dot products get large, assume that the components of q and k are independent random\nvariables with mean 0 and variance 1. Then their dot product, q · k = Pdk\ni=1 qiki, has mean 0 and variance dk.",
+        "question": "What is the mean of the dot product of q and k?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "0",
+        "expected_entities": [
+            {
+                "name": "q",
+                "type": "Component"
+            },
+            {
+                "name": "k",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 78,
+        "paper": "sample.pdf",
+        "page": 4,
+        "parent_chunk": 17,
+        "summary": "4To illustrate why the dot products get large, assume that the components of q and k are independent random\nvariables with mean 0 and variance 1. Then their dot product, q · k = Pdk\ni=1 qiki, has mean 0 and variance dk.",
+        "question": "What is the variance of the dot product of q and k in terms of the number of dimensions d?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "dk",
+        "expected_entities": [
+            {
+                "name": "q",
+                "type": "Component"
+            },
+            {
+                "name": "k",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 79,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 19,
+        "summary": "where headi = Attention(QW Q\ni , KW K\ni , V W V\ni )\n\nWhere the projections are parameter matrices W Q\ni\n∈Rdmodel×dk, W K\ni\n∈Rdmodel×dk, W V\ni\n∈Rdmodel×dv\nand W O ∈Rhdv×dmodel. In this work we employ h = 8 parallel attention layers, or heads. For each of these we use\ndk = dv = dmodel/h = 64.",
+        "question": "What are the components used by the Attention method in this work?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Q, K, V",
+        "expected_entities": [
+            {
+                "name": "Attention",
+                "type": "Method"
+            },
+            {
+                "name": "Q",
+                "type": "Component"
+            },
+            {
+                "name": "K",
+                "type": "Component"
+            },
+            {
+                "name": "V",
+                "type": "Component"
+            },
+            {
+                "name": "W Q",
+                "type": "Component"
+            },
+            {
+                "name": "W K",
+                "type": "Component"
+            },
+            {
+                "name": "W V",
+                "type": "Component"
+            },
+            {
+                "name": "W O",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Attention",
+                "target": "Q",
+                "relation": "USES"
+            },
+            {
+                "source": "Attention",
+                "target": "K",
+                "relation": "USES"
+            },
+            {
+                "source": "Attention",
+                "target": "V",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 80,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 19,
+        "summary": "where headi = Attention(QW Q\ni , KW K\ni , V W V\ni )\n\nWhere the projections are parameter matrices W Q\ni\n∈Rdmodel×dk, W K\ni\n∈Rdmodel×dk, W V\ni\n∈Rdmodel×dv\nand W O ∈Rhdv×dmodel. In this work we employ h = 8 parallel attention layers, or heads. For each of these we use\ndk = dv = dmodel/h = 64.",
+        "question": "How are the dimensions of the projections W Q, W K, and W V determined in this work?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "dk = dv = dmodel/h = 64",
+        "expected_entities": [
+            {
+                "name": "Attention",
+                "type": "Method"
+            },
+            {
+                "name": "Q",
+                "type": "Component"
+            },
+            {
+                "name": "K",
+                "type": "Component"
+            },
+            {
+                "name": "V",
+                "type": "Component"
+            },
+            {
+                "name": "W Q",
+                "type": "Component"
+            },
+            {
+                "name": "W K",
+                "type": "Component"
+            },
+            {
+                "name": "W V",
+                "type": "Component"
+            },
+            {
+                "name": "W O",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Attention",
+                "target": "Q",
+                "relation": "USES"
+            },
+            {
+                "source": "Attention",
+                "target": "K",
+                "relation": "USES"
+            },
+            {
+                "source": "Attention",
+                "target": "V",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 81,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 20,
+        "summary": "3.2.3\nApplications of Attention in our Model\n\nThe Transformer uses multi-head attention in three different ways:\n\n• In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder.",
+        "question": "What type of attention is used by the Transformer in three different ways?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "multi-head attention",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "encoder-decoder attention",
+                "type": "Component"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "encoder-decoder attention",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 82,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 20,
+        "summary": "3.2.3\nApplications of Attention in our Model\n\nThe Transformer uses multi-head attention in three different ways:\n\n• In \"encoder-decoder attention\" layers, the queries come from the previous decoder layer,\nand the memory keys and values come from the output of the encoder.",
+        "question": "In the context of the Transformer model, what is the source of the queries in the encoder-decoder attention layers?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "the previous decoder layer",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "encoder-decoder attention",
+                "type": "Component"
+            },
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "encoder-decoder attention",
+                "relation": "USES"
+            }
+        ]
+    },
+    {
+        "id": 83,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 21,
+        "summary": "• The encoder contains self-attention layers. In a self-attention layer all of the keys, values\nand queries come from the same place, in this case, the output of the previous layer in the\nencoder. Each position in the encoder can attend to all positions in the previous layer of the\nencoder.",
+        "question": "What type of layers does the encoder contain?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "self-attention layers",
+        "expected_entities": [
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "self-attention layer",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "self-attention layer",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 84,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 21,
+        "summary": "• The encoder contains self-attention layers. In a self-attention layer all of the keys, values\nand queries come from the same place, in this case, the output of the previous layer in the\nencoder. Each position in the encoder can attend to all positions in the previous layer of the\nencoder.",
+        "question": "How do the positions in the encoder interact with each other?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "Each position in the encoder can attend to all positions in the previous layer of the encoder",
+        "expected_entities": [
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "self-attention layer",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "self-attention layer",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 85,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 22,
+        "summary": "In addition to attention sub-layers, each of the layers in our encoder and decoder contains a fully\nconnected feed-forward network, which is applied to each position separately and identically. This\nconsists of two linear transformations with a ReLU activation in between.",
+        "question": "What components are contained in each of the layers in the encoder and decoder?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "a fully connected feed-forward network",
+        "expected_entities": [
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            },
+            {
+                "name": "feed-forward network",
+                "type": "Component"
+            },
+            {
+                "name": "ReLU activation",
+                "type": "Method"
+            },
+            {
+                "name": "linear transformations",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "feed-forward network",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "decoder",
+                "target": "feed-forward network",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "feed-forward network",
+                "target": "linear transformations",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "feed-forward network",
+                "target": "ReLU activation",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 86,
+        "paper": "sample.pdf",
+        "page": 5,
+        "parent_chunk": 22,
+        "summary": "In addition to attention sub-layers, each of the layers in our encoder and decoder contains a fully\nconnected feed-forward network, which is applied to each position separately and identically. This\nconsists of two linear transformations with a ReLU activation in between.",
+        "question": "What is the structure of the feed-forward network applied to each position in the encoder and decoder?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "two linear transformations with a ReLU activation in between",
+        "expected_entities": [
+            {
+                "name": "encoder",
+                "type": "Component"
+            },
+            {
+                "name": "decoder",
+                "type": "Component"
+            },
+            {
+                "name": "feed-forward network",
+                "type": "Component"
+            },
+            {
+                "name": "ReLU activation",
+                "type": "Method"
+            },
+            {
+                "name": "linear transformations",
+                "type": "Method"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder",
+                "target": "feed-forward network",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "decoder",
+                "target": "feed-forward network",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "feed-forward network",
+                "target": "linear transformations",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "feed-forward network",
+                "target": "ReLU activation",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 87,
+        "paper": "sample.pdf",
+        "page": 6,
+        "parent_chunk": 25,
+        "summary": "Since our model contains no recurrence and no convolution, in order for the model to make use of the\norder of the sequence, we must inject some information about the relative or absolute position of the\ntokens in the sequence.",
+        "question": "What is required for the model to make use of the order of the sequence?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "some information about the relative or absolute position of the tokens in the sequence",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            },
+            {
+                "name": "sequence",
+                "type": "Concept"
+            },
+            {
+                "name": "tokens",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "sequence",
+                "relation": "USES"
+            },
+            {
+                "source": "sequence",
+                "target": "tokens",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 88,
+        "paper": "sample.pdf",
+        "page": 6,
+        "parent_chunk": 25,
+        "summary": "Since our model contains no recurrence and no convolution, in order for the model to make use of the\norder of the sequence, we must inject some information about the relative or absolute position of the\ntokens in the sequence.",
+        "question": "How does the sequence relate to the tokens it contains?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "The sequence contains the tokens.",
+        "expected_entities": [
+            {
+                "name": "model",
+                "type": "Model"
+            },
+            {
+                "name": "sequence",
+                "type": "Concept"
+            },
+            {
+                "name": "tokens",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "model",
+                "target": "sequence",
+                "relation": "USES"
+            },
+            {
+                "source": "sequence",
+                "target": "tokens",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 89,
+        "paper": "sample.pdf",
+        "page": 6,
+        "parent_chunk": 27,
+        "summary": "4\nWhy Self-Attention\n\nIn this section we compare various aspects of self-attention layers to the recurrent and convolutional layers commonly used for mapping one variable-length sequence of symbol representations\n(x1, ..., xn) to another sequence of equal length (z1, ..., zn), with xi, zi ∈Rd, such ",
+        "question": "What types of layers are compared to self-attention layers in the given context?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "recurrent and convolutional layers",
+        "expected_entities": [
+            {
+                "name": "self-attention layers",
+                "type": "Component"
+            },
+            {
+                "name": "recurrent layers",
+                "type": "Component"
+            },
+            {
+                "name": "convolutional layers",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 90,
+        "paper": "sample.pdf",
+        "page": 6,
+        "parent_chunk": 27,
+        "summary": "4\nWhy Self-Attention\n\nIn this section we compare various aspects of self-attention layers to the recurrent and convolutional layers commonly used for mapping one variable-length sequence of symbol representations\n(x1, ..., xn) to another sequence of equal length (z1, ..., zn), with xi, zi ∈Rd, such ",
+        "question": "What is the common purpose of self-attention, recurrent, and convolutional layers?",
+        "question_type": "Conceptual",
+        "difficulty": "Medium",
+        "reference_answer": "mapping one variable-length sequence of symbol representations to another sequence of equal length",
+        "expected_entities": [
+            {
+                "name": "self-attention layers",
+                "type": "Component"
+            },
+            {
+                "name": "recurrent layers",
+                "type": "Component"
+            },
+            {
+                "name": "convolutional layers",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 91,
+        "paper": "sample.pdf",
+        "page": 8,
+        "parent_chunk": 40,
+        "summary": "6.2\nModel Variations\n\nTo evaluate the importance of different components of the Transformer, we varied our base model\nin different ways, measuring the change in performance on English-to-German translation on the\n\n5We used values of 2.8, 3.7, 6.0 and 9.5 TFLOPS for K80, K40, M40 and P100, respective",
+        "question": "What task was used to measure the change in performance of the Transformer model variations?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "English-to-German translation",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "English-to-German translation",
+                "type": "Task"
+            },
+            {
+                "name": "K80",
+                "type": "Component"
+            },
+            {
+                "name": "K40",
+                "type": "Component"
+            },
+            {
+                "name": "M40",
+                "type": "Component"
+            },
+            {
+                "name": "P100",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 92,
+        "paper": "sample.pdf",
+        "page": 8,
+        "parent_chunk": 40,
+        "summary": "6.2\nModel Variations\n\nTo evaluate the importance of different components of the Transformer, we varied our base model\nin different ways, measuring the change in performance on English-to-German translation on the\n\n5We used values of 2.8, 3.7, 6.0 and 9.5 TFLOPS for K80, K40, M40 and P100, respective",
+        "question": "What was the purpose of varying the base model in the experiment?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "To evaluate the importance of different components of the Transformer",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "English-to-German translation",
+                "type": "Task"
+            },
+            {
+                "name": "K80",
+                "type": "Component"
+            },
+            {
+                "name": "K40",
+                "type": "Component"
+            },
+            {
+                "name": "M40",
+                "type": "Component"
+            },
+            {
+                "name": "P100",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": []
+    },
+    {
+        "id": 93,
+        "paper": "sample.pdf",
+        "page": 9,
+        "parent_chunk": 43,
+        "summary": "0.0\n5.77\n24.6\n0.2\n4.95\n25.5\n0.0\n4.67\n25.3\n0.2\n5.47\n25.7\n(E)\npositional embedding instead of sinusoids\n4.92\n25.7\nbig\n6\n1024\n4096\n16\n0.3\n300K\n4.33\n26.4\n213\n\ndevelopment set, newstest2013. We used beam search as described in the previous section, but no\ncheckpoint averaging.",
+        "question": "What dataset was used as the development set?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "newstest2013",
+        "expected_entities": [
+            {
+                "name": "newstest2013",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "newstest2013",
+                "target": "development set",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 94,
+        "paper": "sample.pdf",
+        "page": 9,
+        "parent_chunk": 43,
+        "summary": "0.0\n5.77\n24.6\n0.2\n4.95\n25.5\n0.0\n4.67\n25.3\n0.2\n5.47\n25.7\n(E)\npositional embedding instead of sinusoids\n4.92\n25.7\nbig\n6\n1024\n4096\n16\n0.3\n300K\n4.33\n26.4\n213\n\ndevelopment set, newstest2013. We used beam search as described in the previous section, but no\ncheckpoint averaging.",
+        "question": "What search method was used in the development set, as described in the previous section?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "beam search",
+        "expected_entities": [
+            {
+                "name": "newstest2013",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "newstest2013",
+                "target": "development set",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 95,
+        "paper": "sample.pdf",
+        "page": 9,
+        "parent_chunk": 45,
+        "summary": "We trained a 4-layer transformer with dmodel = 1024 on the Wall Street Journal (WSJ) portion of the\nPenn Treebank [25], about 40K training sentences. We also trained it in a semi-supervised setting,\nusing the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences\n[...",
+        "question": "What datasets was the transformer model trained on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Wall Street Journal portion of the Penn Treebank, high-confidence and BerkleyParser corpora",
+        "expected_entities": [
+            {
+                "name": "Wall Street Journal",
+                "type": "Organization"
+            },
+            {
+                "name": "Penn Treebank",
+                "type": "Dataset"
+            },
+            {
+                "name": "BerkleyParser",
+                "type": "Dataset"
+            },
+            {
+                "name": "transformer",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "transformer",
+                "target": "Wall Street Journal",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "transformer",
+                "target": "Penn Treebank",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "transformer",
+                "target": "BerkleyParser",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 96,
+        "paper": "sample.pdf",
+        "page": 9,
+        "parent_chunk": 45,
+        "summary": "We trained a 4-layer transformer with dmodel = 1024 on the Wall Street Journal (WSJ) portion of the\nPenn Treebank [25], about 40K training sentences. We also trained it in a semi-supervised setting,\nusing the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences\n[...",
+        "question": "How was the transformer model trained, and what was the size of the training data?",
+        "question_type": "Methodology",
+        "difficulty": "Medium",
+        "reference_answer": "The transformer model was trained in a semi-supervised setting, with approximately 40K training sentences from the Wall Street Journal portion of the Penn Treebank, and about 17M sentences from the larger high-confidence and BerkleyParser corpora",
+        "expected_entities": [
+            {
+                "name": "Wall Street Journal",
+                "type": "Organization"
+            },
+            {
+                "name": "Penn Treebank",
+                "type": "Dataset"
+            },
+            {
+                "name": "BerkleyParser",
+                "type": "Dataset"
+            },
+            {
+                "name": "transformer",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "transformer",
+                "target": "Wall Street Journal",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "transformer",
+                "target": "Penn Treebank",
+                "relation": "TRAINED_ON"
+            },
+            {
+                "source": "transformer",
+                "target": "BerkleyParser",
+                "relation": "TRAINED_ON"
+            }
+        ]
+    },
+    {
+        "id": 97,
+        "paper": "sample.pdf",
+        "page": 10,
+        "parent_chunk": 46,
+        "summary": "Table 4: The Transformer generalizes well to English constituency parsing (Results are on Section 23\nof WSJ)\n\nParser\nTraining\nWSJ 23 F1\nVinyals & Kaiser el al. (2014) [37]\nWSJ only, discriminative\n88.3\nPetrov et al. (2006) [29]\nWSJ only, discriminative\n90.4\nZhu et al.",
+        "question": "What dataset was the Transformer model evaluated on?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "WSJ",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "Vinyals & Kaiser",
+                "type": "Person"
+            },
+            {
+                "name": "Petrov",
+                "type": "Person"
+            },
+            {
+                "name": "Zhu",
+                "type": "Person"
+            },
+            {
+                "name": "WSJ",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "WSJ",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "Vinyals & Kaiser",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Petrov",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Zhu",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 98,
+        "paper": "sample.pdf",
+        "page": 10,
+        "parent_chunk": 46,
+        "summary": "Table 4: The Transformer generalizes well to English constituency parsing (Results are on Section 23\nof WSJ)\n\nParser\nTraining\nWSJ 23 F1\nVinyals & Kaiser el al. (2014) [37]\nWSJ only, discriminative\n88.3\nPetrov et al. (2006) [29]\nWSJ only, discriminative\n90.4\nZhu et al.",
+        "question": "How does the performance of the Transformer model compare to the model by Petrov et al. in terms of F1 score on the WSJ dataset?",
+        "question_type": "Comparison",
+        "difficulty": "Medium",
+        "reference_answer": "The Transformer model has a lower F1 score (88.3) compared to Petrov et al. (90.4)",
+        "expected_entities": [
+            {
+                "name": "Transformer",
+                "type": "Model"
+            },
+            {
+                "name": "Vinyals & Kaiser",
+                "type": "Person"
+            },
+            {
+                "name": "Petrov",
+                "type": "Person"
+            },
+            {
+                "name": "Zhu",
+                "type": "Person"
+            },
+            {
+                "name": "WSJ",
+                "type": "Dataset"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Transformer",
+                "target": "WSJ",
+                "relation": "EVALUATED_ON"
+            },
+            {
+                "source": "Vinyals & Kaiser",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Petrov",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            },
+            {
+                "source": "Zhu",
+                "target": "WSJ",
+                "relation": "USED_FOR"
+            }
+        ]
+    },
+    {
+        "id": 99,
+        "paper": "sample.pdf",
+        "page": 11,
+        "parent_chunk": 53,
+        "summary": "[11] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern\nRecognition, pages 770–778, 2016. [12] Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber.",
+        "question": "What conference was the paper 'Deep residual learning for image recognition' published in?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+        "expected_entities": [
+            {
+                "name": "Kaiming He",
+                "type": "Person"
+            },
+            {
+                "name": "Xiangyu Zhang",
+                "type": "Person"
+            },
+            {
+                "name": "Shaoqing Ren",
+                "type": "Person"
+            },
+            {
+                "name": "Jian Sun",
+                "type": "Person"
+            },
+            {
+                "name": "Sepp Hochreiter",
+                "type": "Person"
+            },
+            {
+                "name": "Yoshua Bengio",
+                "type": "Person"
+            },
+            {
+                "name": "Paolo Frasconi",
+                "type": "Person"
+            },
+            {
+                "name": "Jürgen Schmidhuber",
+                "type": "Person"
+            },
+            {
+                "name": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Kaiming He",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Xiangyu Zhang",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Shaoqing Ren",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Jian Sun",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Sepp Hochreiter",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Yoshua Bengio",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Paolo Frasconi",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Jürgen Schmidhuber",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Deep residual learning for image recognition",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "PUBLISHED_IN"
+            }
+        ]
+    },
+    {
+        "id": 100,
+        "paper": "sample.pdf",
+        "page": 11,
+        "parent_chunk": 53,
+        "summary": "[11] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern\nRecognition, pages 770–778, 2016. [12] Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber.",
+        "question": "Who are the authors of the paper 'Deep residual learning for image recognition'?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun",
+        "expected_entities": [
+            {
+                "name": "Kaiming He",
+                "type": "Person"
+            },
+            {
+                "name": "Xiangyu Zhang",
+                "type": "Person"
+            },
+            {
+                "name": "Shaoqing Ren",
+                "type": "Person"
+            },
+            {
+                "name": "Jian Sun",
+                "type": "Person"
+            },
+            {
+                "name": "Sepp Hochreiter",
+                "type": "Person"
+            },
+            {
+                "name": "Yoshua Bengio",
+                "type": "Person"
+            },
+            {
+                "name": "Paolo Frasconi",
+                "type": "Person"
+            },
+            {
+                "name": "Jürgen Schmidhuber",
+                "type": "Person"
+            },
+            {
+                "name": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Kaiming He",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Xiangyu Zhang",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Shaoqing Ren",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Jian Sun",
+                "target": "Deep residual learning for image recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Sepp Hochreiter",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Yoshua Bengio",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Paolo Frasconi",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Jürgen Schmidhuber",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "AUTHOR_OF"
+            },
+            {
+                "source": "Deep residual learning for image recognition",
+                "target": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+                "relation": "PUBLISHED_IN"
+            }
+        ]
+    },
+    {
+        "id": 101,
+        "paper": "sample.pdf",
+        "page": 11,
+        "parent_chunk": 55,
+        "summary": "[17] Łukasz Kaiser and Ilya Sutskever. Neural GPUs learn algorithms. In International Conference\non Learning Representations (ICLR), 2016. [18] Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, and Koray Kavukcuoglu. Neural machine translation in linear time.",
+        "question": "What conference did Łukasz Kaiser and Ilya Sutskever present at?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "International Conference on Learning Representations (ICLR)",
+        "expected_entities": [
+            {
+                "name": "Łukasz Kaiser",
+                "type": "Person"
+            },
+            {
+                "name": "Ilya Sutskever",
+                "type": "Person"
+            },
+            {
+                "name": "Nal Kalchbrenner",
+                "type": "Person"
+            },
+            {
+                "name": "Lasse Espeholt",
+                "type": "Person"
+            },
+            {
+                "name": "Karen Simonyan",
+                "type": "Person"
+            },
+            {
+                "name": "Aaron van den Oord",
+                "type": "Person"
+            },
+            {
+                "name": "Alex Graves",
+                "type": "Person"
+            },
+            {
+                "name": "Koray Kavukcuoglu",
+                "type": "Person"
+            },
+            {
+                "name": "International Conference on Learning Representations (ICLR)",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Łukasz Kaiser",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Ilya Sutskever",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Nal Kalchbrenner",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Lasse Espeholt",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Karen Simonyan",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Aaron van den Oord",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Alex Graves",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Koray Kavukcuoglu",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "paper": "sample.pdf",
+        "page": 11,
+        "parent_chunk": 55,
+        "summary": "[17] Łukasz Kaiser and Ilya Sutskever. Neural GPUs learn algorithms. In International Conference\non Learning Representations (ICLR), 2016. [18] Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, and Koray Kavukcuoglu. Neural machine translation in linear time.",
+        "question": "Who are the researchers that presented at the International Conference on Learning Representations (ICLR)?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Łukasz Kaiser, Ilya Sutskever, Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, Koray Kavukcuoglu",
+        "expected_entities": [
+            {
+                "name": "Łukasz Kaiser",
+                "type": "Person"
+            },
+            {
+                "name": "Ilya Sutskever",
+                "type": "Person"
+            },
+            {
+                "name": "Nal Kalchbrenner",
+                "type": "Person"
+            },
+            {
+                "name": "Lasse Espeholt",
+                "type": "Person"
+            },
+            {
+                "name": "Karen Simonyan",
+                "type": "Person"
+            },
+            {
+                "name": "Aaron van den Oord",
+                "type": "Person"
+            },
+            {
+                "name": "Alex Graves",
+                "type": "Person"
+            },
+            {
+                "name": "Koray Kavukcuoglu",
+                "type": "Person"
+            },
+            {
+                "name": "International Conference on Learning Representations (ICLR)",
+                "type": "Conference"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Łukasz Kaiser",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Ilya Sutskever",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Nal Kalchbrenner",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Lasse Espeholt",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Karen Simonyan",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Aaron van den Oord",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Alex Graves",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            },
+            {
+                "source": "Koray Kavukcuoglu",
+                "target": "International Conference on Learning Representations (ICLR)",
+                "relation": "PRESENTS_AT"
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "paper": "sample.pdf",
+        "page": 12,
+        "parent_chunk": 61,
+        "summary": "[34] Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus. End-to-end memory\nnetworks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors,\nAdvances in Neural Information Processing Systems 28, pages 2440–2448. Curran Associates,\nInc., 2015.",
+        "question": "What is the title of the conference where End-to-end memory networks was presented?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "Advances in Neural Information Processing Systems 28",
+        "expected_entities": [
+            {
+                "name": "Sainbayar Sukhbaatar",
+                "type": "Person"
+            },
+            {
+                "name": "Arthur Szlam",
+                "type": "Person"
+            },
+            {
+                "name": "Jason Weston",
+                "type": "Person"
+            },
+            {
+                "name": "Rob Fergus",
+                "type": "Person"
+            },
+            {
+                "name": "C. Cortes",
+                "type": "Person"
+            },
+            {
+                "name": "N. D. Lawrence",
+                "type": "Person"
+            },
+            {
+                "name": "D. D. Lee",
+                "type": "Person"
+            },
+            {
+                "name": "M. Sugiyama",
+                "type": "Person"
+            },
+            {
+                "name": "R. Garnett",
+                "type": "Person"
+            },
+            {
+                "name": "Curran Associates, Inc.",
+                "type": "Organization"
+            },
+            {
+                "name": "Advances in Neural Information Processing Systems 28",
+                "type": "Conference"
+            },
+            {
+                "name": "End-to-end memory networks",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Sainbayar Sukhbaatar",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Arthur Szlam",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Jason Weston",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Rob Fergus",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "End-to-end memory networks",
+                "target": "Advances in Neural Information Processing Systems 28",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "Advances in Neural Information Processing Systems 28",
+                "target": "Curran Associates, Inc.",
+                "relation": "PUBLISHED_BY"
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "paper": "sample.pdf",
+        "page": 12,
+        "parent_chunk": 61,
+        "summary": "[34] Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus. End-to-end memory\nnetworks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors,\nAdvances in Neural Information Processing Systems 28, pages 2440–2448. Curran Associates,\nInc., 2015.",
+        "question": "Who are the proposers of the End-to-end memory networks model?",
+        "question_type": "Factual",
+        "difficulty": "Medium",
+        "reference_answer": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus",
+        "expected_entities": [
+            {
+                "name": "Sainbayar Sukhbaatar",
+                "type": "Person"
+            },
+            {
+                "name": "Arthur Szlam",
+                "type": "Person"
+            },
+            {
+                "name": "Jason Weston",
+                "type": "Person"
+            },
+            {
+                "name": "Rob Fergus",
+                "type": "Person"
+            },
+            {
+                "name": "C. Cortes",
+                "type": "Person"
+            },
+            {
+                "name": "N. D. Lawrence",
+                "type": "Person"
+            },
+            {
+                "name": "D. D. Lee",
+                "type": "Person"
+            },
+            {
+                "name": "M. Sugiyama",
+                "type": "Person"
+            },
+            {
+                "name": "R. Garnett",
+                "type": "Person"
+            },
+            {
+                "name": "Curran Associates, Inc.",
+                "type": "Organization"
+            },
+            {
+                "name": "Advances in Neural Information Processing Systems 28",
+                "type": "Conference"
+            },
+            {
+                "name": "End-to-end memory networks",
+                "type": "Model"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Sainbayar Sukhbaatar",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Arthur Szlam",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Jason Weston",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "Rob Fergus",
+                "target": "End-to-end memory networks",
+                "relation": "PROPOSES"
+            },
+            {
+                "source": "End-to-end memory networks",
+                "target": "Advances in Neural Information Processing Systems 28",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "Advances in Neural Information Processing Systems 28",
+                "target": "Curran Associates, Inc.",
+                "relation": "PUBLISHED_BY"
+            }
+        ]
+    },
+    {
+        "id": 105,
+        "paper": "sample.pdf",
+        "page": 14,
+        "parent_chunk": 65,
+        "summary": "Figure 4: Two attention heads, also in layer 5 of 6, apparently involved in anaphora resolution. Top:\nFull attentions for head 5. Bottom: Isolated attentions from just the word ‘its’ for attention heads 5\nand 6. Note that the attentions are very sharp for this word.",
+        "question": "What task is apparently involved with two attention heads in layer 5 of 6 in Figure 4?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "anaphora resolution",
+        "expected_entities": [
+            {
+                "name": "Figure 4",
+                "type": "Model"
+            },
+            {
+                "name": "layer 5",
+                "type": "Component"
+            },
+            {
+                "name": "anaphora resolution",
+                "type": "Task"
+            },
+            {
+                "name": "head 5",
+                "type": "Component"
+            },
+            {
+                "name": "head 6",
+                "type": "Component"
+            },
+            {
+                "name": "word ‘its’",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Figure 4",
+                "target": "anaphora resolution",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "head 5",
+                "target": "layer 5",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "head 6",
+                "target": "layer 5",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 106,
+        "paper": "sample.pdf",
+        "page": 14,
+        "parent_chunk": 65,
+        "summary": "Figure 4: Two attention heads, also in layer 5 of 6, apparently involved in anaphora resolution. Top:\nFull attentions for head 5. Bottom: Isolated attentions from just the word ‘its’ for attention heads 5\nand 6. Note that the attentions are very sharp for this word.",
+        "question": "In what layer are attention heads 5 and 6 contained, according to the information provided about Figure 4?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "layer 5",
+        "expected_entities": [
+            {
+                "name": "Figure 4",
+                "type": "Model"
+            },
+            {
+                "name": "layer 5",
+                "type": "Component"
+            },
+            {
+                "name": "anaphora resolution",
+                "type": "Task"
+            },
+            {
+                "name": "head 5",
+                "type": "Component"
+            },
+            {
+                "name": "head 6",
+                "type": "Component"
+            },
+            {
+                "name": "word ‘its’",
+                "type": "Concept"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "Figure 4",
+                "target": "anaphora resolution",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "head 5",
+                "target": "layer 5",
+                "relation": "CONTAINS"
+            },
+            {
+                "source": "head 6",
+                "target": "layer 5",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 107,
+        "paper": "sample.pdf",
+        "page": 15,
+        "parent_chunk": 66,
+        "summary": "Figure 5: Many of the attention heads exhibit behaviour that seems related to the structure of the\nsentence. We give two such examples above, from two different heads from the encoder self-attention\nat layer 5 of 6. The heads clearly learned to perform different tasks.",
+        "question": "What is exhibited by many of the attention heads in Figure 5?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "behaviour that seems related to the structure of the sentence",
+        "expected_entities": [
+            {
+                "name": "Figure 5",
+                "type": "Component"
+            },
+            {
+                "name": "encoder self-attention",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder self-attention",
+                "target": "Figure 5",
+                "relation": "CONTAINS"
+            }
+        ]
+    },
+    {
+        "id": 108,
+        "paper": "sample.pdf",
+        "page": 15,
+        "parent_chunk": 66,
+        "summary": "Figure 5: Many of the attention heads exhibit behaviour that seems related to the structure of the\nsentence. We give two such examples above, from two different heads from the encoder self-attention\nat layer 5 of 6. The heads clearly learned to perform different tasks.",
+        "question": "What component contains the examples shown in Figure 5?",
+        "question_type": "Factual",
+        "difficulty": "Easy",
+        "reference_answer": "encoder self-attention",
+        "expected_entities": [
+            {
+                "name": "Figure 5",
+                "type": "Component"
+            },
+            {
+                "name": "encoder self-attention",
+                "type": "Component"
+            }
+        ],
+        "expected_relationships": [
+            {
+                "source": "encoder self-attention",
+                "target": "Figure 5",
+                "relation": "CONTAINS"
+            }
+        ]
+    }
+]
