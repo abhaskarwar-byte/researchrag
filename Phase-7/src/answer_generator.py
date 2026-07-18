@@ -1,8 +1,6 @@
 from groq import Groq
 
-from src.config import (
-    GROQ_API_KEY
-)
+from src.config import GROQ_API_KEY
 
 
 client = Groq(
@@ -11,39 +9,28 @@ client = Groq(
 
 
 # =====================================
-# FORMAT VECTOR/HYBRID CONTEXT
+# FORMAT VECTOR CONTEXT
 # =====================================
 
-def format_retrieval_context(
+def format_vector_context(vector_context):
+    """
+    Formats retrieved vector chunks into
+    a readable prompt.
+    """
 
-    retrieval_results
-
-):
-
-    if len(retrieval_results) == 0:
-
-        return "No relevant context found."
+    if not vector_context:
+        return "No semantic context found."
 
     context = ""
 
-    for i, chunk in enumerate(
-
-        retrieval_results,
-
-        start=1
-
-    ):
+    for i, chunk in enumerate(vector_context, start=1):
 
         context += (
-
             f"\nChunk {i}\n"
-
-            f"Source : {chunk['source']}\n"
-
-            f"Page   : {chunk['page']}\n\n"
-
-            f"{chunk['text']}\n"
-
+            f"Source : {chunk.get('source','Unknown')}\n"
+            f"Page   : {chunk.get('page','-')}\n"
+            f"Score  : {round(chunk.get('score',0),4)}\n\n"
+            f"{chunk.get('text','')}\n\n"
         )
 
     return context
@@ -53,49 +40,73 @@ def format_retrieval_context(
 # FORMAT GRAPH CONTEXT
 # =====================================
 
-def format_graph_context(
+def format_graph_context(graph_context):
+    """
+    Formats graph entities into text.
+    """
 
-    graph_results
-
-):
-
-    if len(graph_results) == 0:
-
-        return "No graph results found."
+    if not graph_context:
+        return "No graph context found."
 
     context = ""
 
-    for row in graph_results:
+    for item in graph_context:
 
-        context += str(row)
+        entity = item.get("entity", "Unknown")
+        entity_type = item.get("entity_type", "Unknown")
 
-        context += "\n\n"
+        context += (
+            f"Entity : {entity}\n"
+            f"Type   : {entity_type}\n\n"
+        )
 
     return context
+
+
+# =====================================
+# BUILD FINAL CONTEXT
+# =====================================
+
+def build_context(vector_context, graph_context):
+    """
+    Combines semantic and graph context.
+    """
+
+    semantic = format_vector_context(vector_context)
+
+    graph = format_graph_context(graph_context)
+
+    return (
+        "===== SEMANTIC CONTEXT =====\n\n"
+        + semantic
+        + "\n\n"
+        + "===== GRAPH CONTEXT =====\n\n"
+        + graph
+    )
+
+
 # =====================================
 # GENERATE ANSWER
 # =====================================
 
-def generate_answer(
-
-    question,
-
-    context
-
-):
+def generate_answer(question, context):
+    """
+    Calls Groq LLM to generate an answer.
+    """
 
     prompt = f"""
 You are an expert AI research assistant.
 
-Answer the user's question ONLY using the
-provided context.
+Answer the user's question ONLY using the provided context.
 
 Rules:
 
+- Use ONLY the supplied context.
 - Do NOT invent facts.
 - Do NOT use outside knowledge.
-- If the answer is not present, say:
-  "The provided context does not contain enough information."
+- If the answer cannot be found, reply:
+
+"The provided context does not contain enough information."
 
 Question:
 
@@ -113,15 +124,10 @@ Answer:
         model="llama-3.3-70b-versatile",
 
         messages=[
-
             {
-
                 "role": "user",
-
                 "content": prompt
-
             }
-
         ],
 
         temperature=0
@@ -131,113 +137,100 @@ Answer:
     return (
 
         response
-
         .choices[0]
-
         .message
-
         .content
-
         .strip()
 
     )
 
 
 # =====================================
-# ANSWER QUESTION
+# GENERATE FROM RETRIEVAL
 # =====================================
 
-def answer_question(
-
+def generate_answer_from_retrieval(
     question,
-
-    retrieval_result,
-
-    retrieval_type="vector"
-
+    vector_context,
+    graph_context
 ):
+    """
+    Used by evaluation_pipeline.py.
 
-    # -------------------------
-    # Graph Only
-    # -------------------------
+    Inputs are the outputs from graph_evaluator.py.
+    """
 
-    if (
-
-        retrieval_type == "graph"
-
-    ):
-
-        context = format_graph_context(
-
-            retrieval_result["results"]
-
-        )
-
-    # -------------------------
-    # Final Hybrid
-    # -------------------------
-
-    elif (
-
-        retrieval_type == "hybrid"
-
-    ):
-
-        semantic_context = format_retrieval_context(
-
-            retrieval_result["semantic_results"]
-
-        )
-
-        graph_context = format_graph_context(
-
-            retrieval_result["graph_results"]["results"]
-
-        )
-
-        context = (
-
-            "===== SEMANTIC CONTEXT =====\n\n"
-
-            + semantic_context
-
-            + "\n\n"
-
-            + "===== GRAPH CONTEXT =====\n\n"
-
-            + graph_context
-
-        )
-
-    # -------------------------
-    # Semantic Only
-    # -------------------------
-
-    else:
-
-        context = format_retrieval_context(
-
-            retrieval_result
-
-        )
+    context = build_context(
+        vector_context,
+        graph_context
+    )
 
     answer = generate_answer(
-
         question,
-
         context
-
     )
 
     return {
-
         "question": question,
-
         "context": context,
-
         "answer": answer
-
     }
+
+
+# =====================================
+# BACKWARD COMPATIBILITY
+# =====================================
+
+def answer_question(
+    question,
+    retrieval_result,
+    retrieval_type="vector"
+):
+    """
+    Existing interface used by api.py.
+    """
+
+    if retrieval_type == "graph":
+
+        context = format_graph_context(
+            retrieval_result["results"]
+        )
+
+    elif retrieval_type == "hybrid":
+
+        semantic = format_vector_context(
+            retrieval_result["semantic_results"]
+        )
+
+        graph = format_graph_context(
+            retrieval_result["graph_results"]["results"]
+        )
+
+        context = (
+            "===== SEMANTIC CONTEXT =====\n\n"
+            + semantic
+            + "\n\n"
+            + "===== GRAPH CONTEXT =====\n\n"
+            + graph
+        )
+
+    else:
+
+        context = format_vector_context(
+            retrieval_result
+        )
+
+    answer = generate_answer(
+        question,
+        context
+    )
+
+    return {
+        "question": question,
+        "context": context,
+        "answer": answer
+    }
+
 
 # =====================================
 # MAIN
@@ -247,68 +240,27 @@ if __name__ == "__main__":
 
     from src.router import route_query
 
-    question = input(
+    question = input("Ask a question: ")
 
-        "Ask a question: "
+    retrieval = route_query(question)
 
-    )
-
-    retrieval = route_query(
-
-        question
-
-    )
-
-    if isinstance(
-
-        retrieval,
-
-        dict
-
-    ):
+    if isinstance(retrieval, dict):
 
         response = answer_question(
-
             question,
-
             retrieval,
-
             retrieval_type="graph"
-
         )
 
     else:
 
         response = answer_question(
-
             question,
-
             retrieval,
-
             retrieval_type="vector"
-
         )
 
-    print(
-
-        "\n=============================="
-
-    )
-
-    print(
-
-        "FINAL ANSWER"
-
-    )
-
-    print(
-
-        "==============================\n"
-
-    )
-
-    print(
-
-        response["answer"]
-
-    )
+    print("\n==============================")
+    print("FINAL ANSWER")
+    print("==============================\n")
+    print(response["answer"])

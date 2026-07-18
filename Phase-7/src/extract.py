@@ -52,7 +52,11 @@ def read_pdf(file_path):
     text = ""
 
     for page in pdf:
-        blocks = page.get_text("blocks")
+        try:
+            blocks = page.get_text("blocks")
+        except Exception as e:
+            print(f"Warning: Page {page.number + 1}: {e}")
+            continue
 
         page_text = []
 
@@ -102,7 +106,12 @@ def extract_pdf_pages(file_path):
 
     for page_num, page in enumerate(pdf, start=1):
 
-        blocks = page.get_text("blocks")
+        try:
+            blocks = page.get_text("blocks")
+        except Exception as e:
+            print(f"Warning: Page {page.number + 1}: {e}")
+            continue
+
         cleaned_blocks = []
 
         for block in blocks:

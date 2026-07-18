@@ -177,25 +177,69 @@ def build_graph_context(
 
             )
 
-            retrieved_relationships = []
+            relationship_triples = []
+
+            seen_relationships = set()
 
             for record in neighbors:
 
-                relationship_names = []
+                source_node = record["e"]
 
-                for path in record["r"]:
+                target_node = record["n"]
 
-                    relationship_names.append(
+                relationships = record["r"]
 
-                        path.type
+                source_name = source_node.get(
+
+                    "name",
+
+                    source_node.element_id
+
+                )
+
+                target_name = target_node.get(
+
+                    "name",
+
+                    target_node.element_id
+
+                )
+
+                for relationship in relationships:
+
+                    triple = (
+
+                        source_name,
+
+                        relationship.type,
+
+                        target_name
 
                     )
 
-                retrieved_relationships.extend(
+                    if triple in seen_relationships:
 
-                    relationship_names
+                        continue
 
-                )
+                    seen_relationships.add(
+
+                        triple
+
+                    )
+
+                    relationship_triples.append(
+
+                        {
+
+                            "source": source_name,
+
+                            "relation": relationship.type,
+
+                            "target": target_name
+
+                        }
+
+                    )
 
             graph_context.append(
 
@@ -205,14 +249,13 @@ def build_graph_context(
 
                     "neighbors": neighbors,
 
-                    "relationships": retrieved_relationships
+                    "relationships": relationship_triples
 
                 }
 
             )
 
     return graph_context
-
 
 # =====================================
 # RETRIEVE KNOWLEDGE
@@ -249,6 +292,7 @@ def retrieve_knowledge(
         "graph_context": graph_context
 
     }
+
 
 # =====================================
 # EVALUATE ONE QUESTION
@@ -300,31 +344,77 @@ def evaluate_question(
 
     retrieved_relationships = []
 
+    seen_entities = set()
+
+    seen_relationships = set()
+
     for item in retrieval["graph_context"]:
 
-        graph_results.append(
+        entity_name = item["entity"]["name"]
 
-            {
+        entity_type = item["entity"]["type"]
 
-                "entity": item["entity"]["name"],
+        if entity_name not in seen_entities:
 
-                "entity_type": item["entity"]["type"],
+            graph_results.append(
 
-                "neighbor_count": len(
+                {
 
-                    item["neighbors"]
+                    "entity": entity_name,
 
-                )
+                    "entity_type": entity_type,
 
-            }
+                    "neighbor_count": len(
 
-        )
+                        item["neighbors"]
 
-        retrieved_relationships.extend(
+                    )
 
-            item["relationships"]
+                }
 
-        )
+            )
+
+            seen_entities.add(
+
+                entity_name
+
+            )
+
+        for relationship in item["relationships"]:
+
+            triple = (
+
+                relationship["source"],
+
+                relationship["relation"],
+
+                relationship["target"]
+
+            )
+
+            if triple in seen_relationships:
+
+                continue
+
+            seen_relationships.add(
+
+                triple
+
+            )
+
+            retrieved_relationships.append(
+
+                {
+
+                    "source": relationship["source"],
+
+                    "relation": relationship["relation"],
+
+                    "target": relationship["target"]
+
+                }
+
+            )
 
     return {
 
@@ -363,7 +453,6 @@ def evaluate_question(
             retrieved_relationships
 
     }
-
 
 # =====================================
 # EVALUATE COMPLETE DATASET
@@ -438,9 +527,11 @@ if __name__ == "__main__":
 
     if results:
 
+        sample = results[0]
+
         print(
 
-            f"Question : {results[0]['question']}"
+            f"Question : {sample['question']}"
 
         )
 
@@ -448,7 +539,7 @@ if __name__ == "__main__":
 
             f"Retrieved Vector Chunks : "
 
-            f"{len(results[0]['retrieved_vector'])}"
+            f"{len(sample['retrieved_vector'])}"
 
         )
 
@@ -456,14 +547,147 @@ if __name__ == "__main__":
 
             f"Retrieved Graph Entities : "
 
-            f"{len(results[0]['retrieved_graph'])}"
+            f"{len(sample['retrieved_graph'])}"
 
         )
 
         print(
 
-            f"Retrieved Relationships : "
+            f"Retrieved Relationship Triples : "
 
-            f"{len(results[0]['retrieved_relationships'])}"
+            f"{len(sample['retrieved_relationships'])}"
 
         )
+
+        print("\nSample Relationships:\n")
+
+        for relationship in sample["retrieved_relationships"][:10]:
+
+            print(
+
+                f"{relationship['source']} "
+
+                f"-[{relationship['relation']}]-> "
+
+                f"{relationship['target']}"
+
+            )
+
+# =====================================
+# EVALUATE COMPLETE DATASET
+# =====================================
+
+def evaluate_dataset():
+
+    benchmark_questions = get_all_questions()
+
+    results = []
+
+    print("\n======================================")
+
+    print("GRAPH RETRIEVAL EVALUATION")
+
+    print("======================================")
+
+    print(
+
+        f"Questions : {len(benchmark_questions)}"
+
+    )
+
+    for benchmark in benchmark_questions:
+
+        print(
+
+            f"Evaluating Question {benchmark['id']}"
+
+        )
+
+        result = evaluate_question(
+
+            benchmark
+
+        )
+
+        results.append(
+
+            result
+
+        )
+
+    print("\n======================================")
+
+    print("GRAPH EVALUATION COMPLETE")
+
+    print("======================================")
+
+    print(
+
+        f"Questions Evaluated : {len(results)}"
+
+    )
+
+    return results
+
+
+# =====================================
+# MAIN
+# =====================================
+
+if __name__ == "__main__":
+
+    results = evaluate_dataset()
+
+    print("\n======================================")
+
+    print("SAMPLE RESULT")
+
+    print("======================================")
+
+    if results:
+
+        sample = results[0]
+
+        print(
+
+            f"Question : {sample['question']}"
+
+        )
+
+        print(
+
+            f"Retrieved Vector Chunks : "
+
+            f"{len(sample['retrieved_vector'])}"
+
+        )
+
+        print(
+
+            f"Retrieved Graph Entities : "
+
+            f"{len(sample['retrieved_graph'])}"
+
+        )
+
+        print(
+
+            f"Retrieved Relationship Triples : "
+
+            f"{len(sample['retrieved_relationships'])}"
+
+        )
+
+        print("\nSample Relationships:\n")
+
+        for relationship in sample["retrieved_relationships"][:10]:
+
+            print(
+
+                f"{relationship['source']} "
+
+                f"-[{relationship['relation']}]-> "
+
+                f"{relationship['target']}"
+
+            )

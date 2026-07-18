@@ -1,8 +1,12 @@
 import json
 import os
 import re
+import time
 
-from groq import Groq
+from groq import (
+    Groq,
+    RateLimitError
+)
 
 from src.config import (
     GROQ_API_KEY,
@@ -273,19 +277,13 @@ def is_reference_section(summary):
 # =====================================================
 
 def generate_questions(
-
     paper,
-
     summary,
-
     entities,
-
     relationships
-
 ):
 
     prompt = f"""
-
 Research Paper
 
 {paper}
@@ -303,37 +301,53 @@ Relationships
 {json.dumps(relationships, indent=2)}
 
 {BENCHMARK_PROMPT}
-
 """
 
-    response = client.chat.completions.create(
+    retries = 5
 
-        model=GROQ_MODEL,
+    for attempt in range(retries):
 
-        temperature=0,
+        try:
 
-        messages=[
+            response = client.chat.completions.create(
 
-            {
-                "role":"system",
-                "content":"Return ONLY valid JSON."
-            },
+                model=GROQ_MODEL,
 
-            {
-                "role":"user",
-                "content":prompt
-            }
+                temperature=0,
 
-        ]
+                messages=[
 
-    )
+                    {
+                        "role": "system",
+                        "content": "Return ONLY valid JSON."
+                    },
 
-    return parse_json(
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
 
-        response.choices[0].message.content
+                ]
 
-    )
+            )
 
+            return parse_json(
+                response.choices[0].message.content
+            )
+
+        except RateLimitError:
+
+            wait = 2 ** attempt
+
+            print(
+                f"\nRate limit reached. Waiting {wait} seconds..."
+            )
+
+            time.sleep(wait)
+
+    print("\nSkipping after repeated rate limits.")
+
+    return []
 
 # =====================================================
 # GENERATE BENCHMARK
@@ -438,14 +452,62 @@ def generate_parent_benchmark(
     return benchmark, benchmark_id
 
 # =====================================================
+# RESUME HELPERS
+# =====================================================
+
+def load_existing_dataset():
+
+    if os.path.exists(OUTPUT_FILE):
+
+        with open(
+            OUTPUT_FILE,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            return json.load(file)
+
+    return []
+
+
+def get_next_benchmark_id(dataset):
+
+    if not dataset:
+        return 1
+
+    return max(item["id"] for item in dataset) + 1
+
+
+def build_completed_parent_lookup(dataset):
+
+    completed = set()
+
+    for item in dataset:
+
+        completed.add(
+            (
+                item["paper"],
+                item["parent_chunk"]
+            )
+        )
+
+    return completed
+
+# =====================================================
 # GENERATE COMPLETE BENCHMARK DATASET
 # =====================================================
 
 def generate_benchmark_dataset():
 
-    dataset = []
+    dataset = load_existing_dataset()
 
-    benchmark_id = 1
+    print(
+    f"Loaded {len(dataset)} existing benchmark questions."
+    )
+    
+    benchmark_id = get_next_benchmark_id(dataset)
+
+    completed_parents = build_completed_parent_lookup(dataset)
 
     processed_papers = 0
 
@@ -497,6 +559,20 @@ def generate_benchmark_dataset():
 
         for parent in parent_chunks:
 
+            
+            key = (
+                file,
+                parent["parent_id"]
+            )
+
+            if key in completed_parents:
+
+                print(
+                    f"Skipping Parent {parent['parent_id']} (Already Completed)"
+                )
+
+                continue
+
             benchmark, benchmark_id = (
 
                 generate_parent_benchmark(
@@ -520,6 +596,10 @@ def generate_benchmark_dataset():
                 benchmark
             )
 
+            completed_parents.add(key)
+
+            save_dataset(dataset)
+            
             paper_questions += len(
                 benchmark
             )
@@ -531,6 +611,7 @@ def generate_benchmark_dataset():
         print(
             f"Skipped Parent Summaries      : {paper_skipped}"
         )
+
 
     print("\n======================================")
     print("BENCHMARK GENERATION COMPLETE")
@@ -604,9 +685,8 @@ def save_dataset(dataset):
 
 def main():
 
-    dataset = generate_benchmark_dataset()
+    generate_benchmark_dataset()
 
-    save_dataset(dataset)
 
 
 if __name__ == "__main__":
