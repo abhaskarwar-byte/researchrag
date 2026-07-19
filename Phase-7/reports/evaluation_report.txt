@@ -27,17 +27,17 @@ Relationship F1        : 0.023
 ANSWER QUALITY
 ----------------------------------------
 Exact Match            : 0.000
-Token Precision        : 0.098
-Token Recall           : 1.000
-Token F1               : 0.170
+Token Precision        : 0.235
+Token Recall           : 0.828
+Token F1               : 0.312
 
-Entity Precision       : 0.254
-Entity Recall          : 0.960
-Entity F1              : 0.364
+Entity Precision       : 0.174
+Entity Recall          : 0.831
+Entity F1              : 0.267
 
-Relationship Precision : 0.000
-Relationship Recall    : 0.000
-Relationship F1        : 0.000
+Relationship Precision : 0.006
+Relationship Recall    : 0.385
+Relationship F1        : 0.012
 
 GENERATED VISUALIZATIONS
 ----------------------------------------
