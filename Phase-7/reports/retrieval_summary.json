@@ -1,0 +1,8 @@
+{
+    "entity_precision": 0.1885212906139204,
+    "entity_recall": 0.785730831407523,
+    "entity_f1": 0.28739533367568104,
+    "relationship_precision": 0.012304258824157654,
+    "relationship_recall": 0.3556808688387636,
+    "relationship_f1": 0.023409926712806894
+}

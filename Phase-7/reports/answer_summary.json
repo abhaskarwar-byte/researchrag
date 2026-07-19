@@ -1,0 +1,12 @@
+{
+    "exact_match": 0.0,
+    "token_precision": 0.0763,
+    "token_recall": 1.0,
+    "token_f1": 0.1409,
+    "entity_precision": 0.182,
+    "entity_recall": 1.0,
+    "entity_f1": 0.3079,
+    "relationship_precision": 0.0,
+    "relationship_recall": 0.0,
+    "relationship_f1": 0.0
+}

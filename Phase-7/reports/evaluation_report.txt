@@ -26,7 +26,18 @@ Relationship F1        : 0.023
 
 ANSWER QUALITY
 ----------------------------------------
-Answer evaluation could not be completed because the LLM API quota was exhausted.
+Exact Match            : 0.000
+Token Precision        : 0.076
+Token Recall           : 1.000
+Token F1               : 0.141
+
+Entity Precision       : 0.182
+Entity Recall          : 1.000
+Entity F1              : 0.308
+
+Relationship Precision : 0.000
+Relationship Recall    : 0.000
+Relationship F1        : 0.000
 
 GENERATED VISUALIZATIONS
 ----------------------------------------

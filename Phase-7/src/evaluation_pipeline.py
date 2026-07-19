@@ -1,10 +1,15 @@
+import os
+import json
+
 from src.graph_evaluator import evaluate_dataset
 from src.retrieval_evaluator import evaluate_retrieval
 from src.answer_generator import generate_answer_from_retrieval
+
 from src.answer_evaluator import (
     evaluate_answer,
     evaluate_answers
 )
+
 from src.graph_metrics import graph_statistics
 
 from src.visualization import (
@@ -19,7 +24,63 @@ from src.report_generator import generate_report
 
 
 # =====================================
-# EVALUATION PIPELINE
+# CHECKPOINT DIRECTORY
+# =====================================
+
+REPORT_DIR = "reports"
+
+os.makedirs(
+    REPORT_DIR,
+    exist_ok=True
+)
+
+
+# =====================================
+# JSON HELPERS
+# =====================================
+
+def save_json(filename, data):
+
+    path = os.path.join(
+        REPORT_DIR,
+        filename
+    )
+
+    with open(
+        path,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            data,
+            f,
+            indent=4,
+            ensure_ascii=False
+        )
+
+
+def load_json(filename):
+
+    path = os.path.join(
+        REPORT_DIR,
+        filename
+    )
+
+    if not os.path.exists(path):
+        return None
+
+    with open(
+        path,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        return json.load(f)
+
+
+# =====================================
+# PIPELINE
 # =====================================
 
 def run_pipeline():
@@ -28,45 +89,125 @@ def run_pipeline():
     print("KNOWLEDGE GRAPH RAG EVALUATION")
     print("======================================")
 
-    # -----------------------------------
-    # Graph Statistics
-    # -----------------------------------
+    # ---------------------------------
+    # GRAPH EVALUATION
+    # ---------------------------------
 
-    print("\nComputing graph statistics...")
+    graph_results = load_json(
+        "graph_results.json"
+    )
 
-    graph_metrics = graph_statistics()
+    graph_metrics = load_json(
+        "graph_metrics.json"
+    )
 
-    # -----------------------------------
-    # Graph Retrieval Evaluation
-    # -----------------------------------
+    if graph_results is None or graph_metrics is None:
 
-    print("\nRunning graph retrieval...")
+        print("\nRunning graph evaluation...")
 
-    graph_results = evaluate_dataset()
+        graph_metrics = graph_statistics()
 
-    # -----------------------------------
-    # Retrieval Metrics
-    # -----------------------------------
+        graph_results = evaluate_dataset()
 
-    print("\nComputing retrieval metrics...")
+        save_json(
+            "graph_metrics.json",
+            graph_metrics
+        )
 
-    retrieval_results, retrieval_summary = evaluate_retrieval(graph_results)
+        save_json(
+            "graph_results.json",
+            graph_results
+        )
 
-    # -----------------------------------
-    # Answer Generation
-    # -----------------------------------
+    else:
 
-    print("\nGenerating answers...")
+        print("\nLoaded graph checkpoint.")
 
-    answer_results = []
+    # ---------------------------------
+    # RETRIEVAL EVALUATION
+    # ---------------------------------
+
+    retrieval_results = load_json(
+        "retrieval_results.json"
+    )
+
+    retrieval_summary = load_json(
+        "retrieval_summary.json"
+    )
+
+    if retrieval_results is None or retrieval_summary is None:
+
+        print("\nRunning retrieval evaluation...")
+
+        retrieval_results, retrieval_summary = evaluate_retrieval(
+            graph_results
+        )
+
+        save_json(
+            "retrieval_results.json",
+            retrieval_results
+        )
+
+        save_json(
+            "retrieval_summary.json",
+            retrieval_summary
+        )
+
+    else:
+
+        print("\nLoaded retrieval checkpoint.")
+
+    # ---------------------------------
+    # ANSWER CHECKPOINT
+    # ---------------------------------
+
+    answer_results = load_json(
+        "answer_checkpoint.json"
+    )
+
+    if answer_results is None:
+
+        answer_results = []
+
+    completed_questions = {
+
+        result.get("question")
+
+        for result in answer_results
+
+        if "question" in result
+
+    }
+
+    print(
+        f"\nLoaded {len(answer_results)} completed answers."
+    )
+
+    # ---------------------------------
+    # ANSWER GENERATION
+    # ---------------------------------
 
     try:
 
         for benchmark in retrieval_results:
 
+            question = benchmark["question"]
+
+            if question in completed_questions:
+
+                print(
+                    f"Skipping: {question[:60]}..."
+                )
+
+                continue
+
+            print(
+                f"\nGenerating Answer ({len(answer_results)+1}/{len(retrieval_results)})"
+            )
+
             response = generate_answer_from_retrieval(
 
-                question=benchmark["question"],
+                question=question,
 
                 vector_context=benchmark["retrieved_vector"],
 
@@ -76,7 +217,7 @@ def run_pipeline():
 
             metrics = evaluate_answer(
 
-                question=benchmark["question"],
+                question=question,
 
                 reference_answer=benchmark["reference_answer"],
 
@@ -85,8 +226,13 @@ def run_pipeline():
                 expected_entities=benchmark["expected_entities"],
 
                 retrieved_entities=[
-                    {"name": entity["entity"]}
+
+                    {
+                        "name": entity["entity"]
+                    }
+
                     for entity in benchmark["retrieved_graph"]
+
                 ],
 
                 expected_relationships=benchmark["expected_relationships"],
@@ -97,6 +243,13 @@ def run_pipeline():
 
             answer_results.append(metrics)
 
+            save_json(
+                "answer_checkpoint.json",
+                answer_results
+            )
+
+            print("Checkpoint saved.")
+
     except Exception as e:
 
         print("\n======================================")
@@ -105,22 +258,43 @@ def run_pipeline():
         print(e)
 
         if answer_results:
-            answer_summary = evaluate_answers(answer_results)
+
+            answer_summary = evaluate_answers(
+                answer_results
+            )
+
+            save_json(
+                "answer_summary.json",
+                answer_summary
+            )
+
         else:
+
             answer_summary = {}
 
         print("\nGenerating partial visualizations...")
 
-        plot_graph_statistics(graph_metrics)
+        plot_graph_statistics(
+            graph_metrics
+        )
 
-        plot_retrieval_metrics(retrieval_summary)
+        plot_retrieval_metrics(
+            retrieval_summary
+        )
 
         if answer_summary:
-            plot_answer_metrics(answer_summary)
 
-        plot_question_type_distribution(retrieval_results)
+            plot_answer_metrics(
+                answer_summary
+            )
 
-        plot_difficulty_distribution(retrieval_results)
+        plot_question_type_distribution(
+            retrieval_results
+        )
+
+        plot_difficulty_distribution(
+            retrieval_results
+        )
 
         print("\nGenerating partial report...")
 
@@ -137,54 +311,54 @@ def run_pipeline():
         print("\n======================================")
         print("PARTIAL EVALUATION COMPLETE")
         print("======================================")
+        print(
+            f"Checkpoint saved with {len(answer_results)} completed answers."
+        )
 
         return
 
-    # -----------------------------------
-    # Aggregate Answer Metrics
-    # -----------------------------------
+    # ---------------------------------
+    # FINAL ANSWER SUMMARY
+    # ---------------------------------
 
-    answer_summary = evaluate_answers(answer_results)
+    answer_summary = evaluate_answers(
+        answer_results
+    )
 
-    # -----------------------------------
-    # Visualizations
-    # -----------------------------------
+    save_json(
+        "answer_summary.json",
+        answer_summary
+    )
+
+    # ---------------------------------
+    # VISUALIZATIONS
+    # ---------------------------------
 
     print("\nGenerating visualizations...")
 
     plot_graph_statistics(
-
         graph_metrics
-
     )
 
     plot_retrieval_metrics(
-
         retrieval_summary
-
     )
 
     plot_answer_metrics(
-
         answer_summary
-
     )
 
     plot_question_type_distribution(
-
         retrieval_results
-
     )
 
     plot_difficulty_distribution(
-
         retrieval_results
-
     )
 
-    # -----------------------------------
-    # Report
-    # -----------------------------------
+    # ---------------------------------
+    # REPORT
+    # ---------------------------------
 
     print("\nGenerating report...")
 
@@ -201,6 +375,16 @@ def run_pipeline():
     print("\n======================================")
     print("EVALUATION COMPLETE")
     print("======================================")
+
+    print("\nSaved files:")
+
+    print("reports/graph_results.json")
+    print("reports/graph_metrics.json")
+    print("reports/retrieval_results.json")
+    print("reports/retrieval_summary.json")
+    print("reports/answer_checkpoint.json")
+    print("reports/answer_summary.json")
+    print("reports/evaluation_report.txt")
 
 
 # =====================================

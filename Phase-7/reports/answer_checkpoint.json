@@ -1,0 +1,32 @@
+[
+    {
+        "question": "What type of input is used for the 'masterpiece of fairy tale, giant deer, golden antlers' prompt?",
+        "reference_answer": "Canny edge",
+        "generated_answer": "The provided context does not contain enough information to determine the type of input used for the 'masterpiece of fairy tale, giant deer, golden antlers' prompt, but it is mentioned as \"Input Canny edge\" with a default prompt.",
+        "exact_match": 0,
+        "token_precision": 0.0526,
+        "token_recall": 1.0,
+        "token_f1": 0.1,
+        "entity_precision": 0.1765,
+        "entity_recall": 1.0,
+        "entity_f1": 0.3,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
+    },
+    {
+        "question": "What is the location mentioned in the 'quaint city' prompt?",
+        "reference_answer": "Galic",
+        "generated_answer": "The location mentioned in the 'quaint city' prompt is Galic.",
+        "exact_match": 0,
+        "token_precision": 0.1,
+        "token_recall": 1.0,
+        "token_f1": 0.1818,
+        "entity_precision": 0.1875,
+        "entity_recall": 1.0,
+        "entity_f1": 0.3158,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
+    }
+]
