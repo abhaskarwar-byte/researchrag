@@ -28,5 +28,50 @@
         "relationship_precision": 0.0,
         "relationship_recall": 0.0,
         "relationship_f1": 0.0
+    },
+    {
+        "question": "What is the name of the model that allows users to add conditions like Canny edges and human pose to control image generation?",
+        "reference_answer": "ControlNet",
+        "generated_answer": "The name of the model that allows users to add conditions like Canny edges and human pose to control image generation is ControlNet.",
+        "exact_match": 0,
+        "token_precision": 0.0435,
+        "token_recall": 1.0,
+        "token_f1": 0.0833,
+        "entity_precision": 0.25,
+        "entity_recall": 0.8,
+        "entity_f1": 0.381,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
+    },
+    {
+        "question": "What type of diffusion model does ControlNet control?",
+        "reference_answer": "Stable Diffusion",
+        "generated_answer": "The provided context does not contain enough information to specify the exact type of diffusion model that ControlNet controls, but it does mention that ControlNet can control large pretrained text-to-image diffusion models, specifically Stable Diffusion.",
+        "exact_match": 0,
+        "token_precision": 0.0541,
+        "token_recall": 1.0,
+        "token_f1": 0.1026,
+        "entity_precision": 0.625,
+        "entity_recall": 1.0,
+        "entity_f1": 0.7692,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
+    },
+    {
+        "question": "What type of models are mentioned in the parent summary as enabling the creation of visually stunning images from text prompts?",
+        "reference_answer": "text-to-image diffusion models",
+        "generated_answer": "Text-to-image diffusion models are mentioned in the context as enabling the creation of visually stunning images from text prompts.",
+        "exact_match": 0,
+        "token_precision": 0.2381,
+        "token_recall": 1.0,
+        "token_f1": 0.3846,
+        "entity_precision": 0.0286,
+        "entity_recall": 1.0,
+        "entity_f1": 0.0556,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
     }
 ]
