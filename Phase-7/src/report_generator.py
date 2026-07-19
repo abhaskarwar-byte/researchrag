@@ -1,154 +1,165 @@
 import os
 
 
-REPORT_DIR = "reports"
-REPORT_FILE = os.path.join(REPORT_DIR, "evaluation_report.md")
-
-
-def create_report_directory():
-    """
-    Creates the reports directory if it doesn't exist.
-    """
-    os.makedirs(REPORT_DIR, exist_ok=True)
-
-
-def average(values):
-    """
-    Returns the average of a list.
-    """
-    if not values:
-        return 0.0
-
-    return round(sum(values) / len(values), 4)
-
+# =====================================
+# REPORT GENERATOR
+# =====================================
 
 def generate_report(
     graph_metrics,
     retrieval_results,
-    answer_results
+    answer_results,
+    output_file="reports/evaluation_report.txt"
 ):
     """
-    Generates a Markdown evaluation report.
+    Generates the final evaluation report.
 
     Parameters
     ----------
     graph_metrics : dict
-    retrieval_results : list
-    answer_results : list
+        Graph statistics.
+
+    retrieval_results : dict
+        Average retrieval metrics.
+
+    answer_results : dict
+        Average answer metrics.
+        May be empty if answer generation failed.
+
+    output_file : str
+        Output report path.
     """
 
-    create_report_directory()
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
-    # ==========================
-    # Retrieval Metrics
-    # ==========================
+    with open(output_file, "w", encoding="utf-8") as report:
 
-    entity_precision = average(
-        [r["entity_precision"] for r in retrieval_results]
-    )
+        report.write("=" * 60 + "\n")
+        report.write("KNOWLEDGE GRAPH RAG EVALUATION REPORT\n")
+        report.write("=" * 60 + "\n\n")
 
-    entity_recall = average(
-        [r["entity_recall"] for r in retrieval_results]
-    )
+        # ==================================================
+        # GRAPH STATISTICS
+        # ==================================================
 
-    entity_f1 = average(
-        [r["entity_f1"] for r in retrieval_results]
-    )
+        report.write("GRAPH STATISTICS\n")
+        report.write("-" * 40 + "\n")
 
-    relationship_precision = average(
-        [r["relationship_precision"] for r in retrieval_results]
-    )
+        for key, value in graph_metrics.items():
+            report.write(f"{key:<30}: {value}\n")
 
-    relationship_recall = average(
-        [r["relationship_recall"] for r in retrieval_results]
-    )
+        report.write("\n")
 
-    relationship_f1 = average(
-        [r["relationship_f1"] for r in retrieval_results]
-    )
+        # ==================================================
+        # RETRIEVAL METRICS
+        # ==================================================
 
-    # ==========================
-    # Answer Metrics
-    # ==========================
-
-    exact_match = average(
-        [r["exact_match"] for r in answer_results]
-    )
-
-    token_f1 = average(
-        [r["token_f1"] for r in answer_results]
-    )
-
-    answer_entity_f1 = average(
-        [r["entity_f1"] for r in answer_results]
-    )
-
-    answer_relationship_f1 = average(
-        [r["relationship_f1"] for r in answer_results]
-    )
-
-    # ==========================
-    # Generate Report
-    # ==========================
-
-    with open(REPORT_FILE, "w", encoding="utf-8") as report:
-
-        report.write("# Research RAG Evaluation Report\n\n")
-
-        report.write("---\n\n")
-
-        report.write("## Knowledge Graph Statistics\n\n")
-
-        report.write(f"- Papers : {graph_metrics['papers']}\n")
-        report.write(f"- Parent Chunks : {graph_metrics['parent_chunks']}\n")
-        report.write(f"- Child Chunks : {graph_metrics['child_chunks']}\n")
-        report.write(f"- Entities : {graph_metrics['entities']}\n")
-        report.write(f"- Relationships : {graph_metrics['relationships']}\n")
-
-        report.write("\n---\n\n")
-
-        report.write("## Retrieval Evaluation\n\n")
-
-        report.write("### Entity Retrieval\n\n")
-        report.write(f"- Precision : {entity_precision:.4f}\n")
-        report.write(f"- Recall : {entity_recall:.4f}\n")
-        report.write(f"- F1 Score : {entity_f1:.4f}\n\n")
-
-        report.write("### Relationship Retrieval\n\n")
-        report.write(f"- Precision : {relationship_precision:.4f}\n")
-        report.write(f"- Recall : {relationship_recall:.4f}\n")
-        report.write(f"- F1 Score : {relationship_f1:.4f}\n")
-
-        report.write("\n---\n\n")
-
-        report.write("## Answer Evaluation\n\n")
-
-        report.write(f"- Exact Match : {exact_match:.4f}\n")
-        report.write(f"- Token F1 : {token_f1:.4f}\n")
-        report.write(f"- Entity F1 : {answer_entity_f1:.4f}\n")
-        report.write(f"- Relationship F1 : {answer_relationship_f1:.4f}\n")
-
-        report.write("\n---\n\n")
-
-        report.write("## Generated Visualizations\n\n")
-
-        report.write("- reports/figures/graph_statistics.png\n")
-        report.write("- reports/figures/retrieval_metrics.png\n")
-        report.write("- reports/figures/answer_metrics.png\n")
-        report.write("- reports/figures/question_types.png\n")
-        report.write("- reports/figures/difficulty_distribution.png\n")
-
-        report.write("\n---\n\n")
-
-        report.write("## Summary\n\n")
+        report.write("RETRIEVAL METRICS\n")
+        report.write("-" * 40 + "\n")
 
         report.write(
-            "The Knowledge Graph RAG evaluation was performed using a "
-            "benchmark dataset generated from the ingested research papers. "
-            "The system was evaluated in three stages: knowledge graph quality, "
-            "retrieval performance, and answer quality. The generated charts "
-            "provide a visual overview of graph statistics, retrieval metrics, "
-            "answer metrics, benchmark question types, and difficulty distribution."
+            f"Entity Precision       : {retrieval_results['entity_precision']:.3f}\n"
+        )
+        report.write(
+            f"Entity Recall          : {retrieval_results['entity_recall']:.3f}\n"
+        )
+        report.write(
+            f"Entity F1              : {retrieval_results['entity_f1']:.3f}\n\n"
         )
 
-    print(f"\nReport saved to: {REPORT_FILE}")
+        report.write(
+            f"Relationship Precision : {retrieval_results['relationship_precision']:.3f}\n"
+        )
+        report.write(
+            f"Relationship Recall    : {retrieval_results['relationship_recall']:.3f}\n"
+        )
+        report.write(
+            f"Relationship F1        : {retrieval_results['relationship_f1']:.3f}\n"
+        )
+
+        report.write("\n")
+
+        # ==================================================
+        # ANSWER QUALITY
+        # ==================================================
+
+        report.write("ANSWER QUALITY\n")
+        report.write("-" * 40 + "\n")
+
+        if answer_results:
+
+            report.write(
+                f"Exact Match            : {answer_results['exact_match']:.3f}\n"
+            )
+
+            report.write(
+                f"Token Precision        : {answer_results['token_precision']:.3f}\n"
+            )
+
+            report.write(
+                f"Token Recall           : {answer_results['token_recall']:.3f}\n"
+            )
+
+            report.write(
+                f"Token F1               : {answer_results['token_f1']:.3f}\n\n"
+            )
+
+            report.write(
+                f"Entity Precision       : {answer_results['entity_precision']:.3f}\n"
+            )
+
+            report.write(
+                f"Entity Recall          : {answer_results['entity_recall']:.3f}\n"
+            )
+
+            report.write(
+                f"Entity F1              : {answer_results['entity_f1']:.3f}\n\n"
+            )
+
+            report.write(
+                f"Relationship Precision : {answer_results['relationship_precision']:.3f}\n"
+            )
+
+            report.write(
+                f"Relationship Recall    : {answer_results['relationship_recall']:.3f}\n"
+            )
+
+            report.write(
+                f"Relationship F1        : {answer_results['relationship_f1']:.3f}\n"
+            )
+
+        else:
+
+            report.write(
+                "Answer evaluation could not be completed because the LLM API quota was exhausted.\n"
+            )
+
+        report.write("\n")
+
+        # ==================================================
+        # GENERATED VISUALIZATIONS
+        # ==================================================
+
+        report.write("GENERATED VISUALIZATIONS\n")
+        report.write("-" * 40 + "\n")
+
+        figures = [
+            "graph_statistics.png",
+            "retrieval_metrics.png",
+            "answer_metrics.png",
+            "question_types.png",
+            "difficulty_distribution.png",
+        ]
+
+        for figure in figures:
+            report.write(f"- {figure}\n")
+
+        report.write("\n")
+        report.write("=" * 60 + "\n")
+        report.write("END OF REPORT\n")
+        report.write("=" * 60 + "\n")
+
+    print("\n======================================")
+    print("REPORT GENERATED")
+    print("======================================")
+    print(f"Saved to: {output_file}")

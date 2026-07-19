@@ -78,3 +78,51 @@ def evaluate_answer(
         )
 
     }
+
+# =====================================
+# EVALUATE ALL ANSWERS
+# =====================================
+
+def evaluate_answers(answer_results):
+    """
+    Computes average metrics across all evaluated answers.
+    """
+
+    if not answer_results:
+        return {}
+
+    summary = {
+        "exact_match": 0.0,
+        "token_precision": 0.0,
+        "token_recall": 0.0,
+        "token_f1": 0.0,
+        "entity_precision": 0.0,
+        "entity_recall": 0.0,
+        "entity_f1": 0.0,
+        "relationship_precision": 0.0,
+        "relationship_recall": 0.0,
+        "relationship_f1": 0.0
+    }
+
+    total = len(answer_results)
+
+    for result in answer_results:
+
+        summary["exact_match"] += result["exact_match"]
+
+        summary["token_precision"] += result["token_precision"]
+        summary["token_recall"] += result["token_recall"]
+        summary["token_f1"] += result["token_f1"]
+
+        summary["entity_precision"] += result["entity_precision"]
+        summary["entity_recall"] += result["entity_recall"]
+        summary["entity_f1"] += result["entity_f1"]
+
+        summary["relationship_precision"] += result["relationship_precision"]
+        summary["relationship_recall"] += result["relationship_recall"]
+        summary["relationship_f1"] += result["relationship_f1"]
+
+    for key in summary:
+        summary[key] /= total
+
+    return summary

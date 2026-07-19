@@ -312,26 +312,30 @@ def evaluate_retrieval(graph_results=None):
         relationship_f1 /= total
 
     print("\n======================================")
-
     print("AVERAGE RETRIEVAL METRICS")
-
     print("======================================")
 
     print(f"Entity Precision       : {entity_precision:.3f}")
-
     print(f"Entity Recall          : {entity_recall:.3f}")
-
     print(f"Entity F1              : {entity_f1:.3f}")
-
     print()
-
     print(f"Relationship Precision : {relationship_precision:.3f}")
-
     print(f"Relationship Recall    : {relationship_recall:.3f}")
-
     print(f"Relationship F1        : {relationship_f1:.3f}")
 
-    return retrieval_results
+    retrieval_summary = {
+
+        "entity_precision": entity_precision,
+        "entity_recall": entity_recall,
+        "entity_f1": entity_f1,
+
+        "relationship_precision": relationship_precision,
+        "relationship_recall": relationship_recall,
+        "relationship_f1": relationship_f1
+
+    }
+
+    return retrieval_results, retrieval_summary
 
 
 # =====================================

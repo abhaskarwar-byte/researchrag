@@ -42,7 +42,7 @@ def plot_graph_statistics(graph_metrics):
         graph_metrics["relationships"]
     ]
 
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(8, 5))
 
     plt.bar(labels, values)
 
@@ -66,7 +66,7 @@ def plot_graph_statistics(graph_metrics):
 # RETRIEVAL METRICS
 # =====================================
 
-def plot_retrieval_metrics(results):
+def plot_retrieval_metrics(metrics):
 
     create_output_directory()
 
@@ -81,25 +81,25 @@ def plot_retrieval_metrics(results):
 
     values = [
 
-        sum(r["entity_precision"] for r in results) / len(results),
+        metrics["entity_precision"],
 
-        sum(r["entity_recall"] for r in results) / len(results),
+        metrics["entity_recall"],
 
-        sum(r["entity_f1"] for r in results) / len(results),
+        metrics["entity_f1"],
 
-        sum(r["relationship_precision"] for r in results) / len(results),
+        metrics["relationship_precision"],
 
-        sum(r["relationship_recall"] for r in results) / len(results),
+        metrics["relationship_recall"],
 
-        sum(r["relationship_f1"] for r in results) / len(results)
+        metrics["relationship_f1"]
 
     ]
 
-    plt.figure(figsize=(9,5))
+    plt.figure(figsize=(9, 5))
 
     plt.bar(labels, values)
 
-    plt.ylim(0,1)
+    plt.ylim(0, 1)
 
     plt.ylabel("Score")
 
@@ -123,7 +123,7 @@ def plot_retrieval_metrics(results):
 # ANSWER METRICS
 # =====================================
 
-def plot_answer_metrics(results):
+def plot_answer_metrics(metrics):
 
     create_output_directory()
 
@@ -141,21 +141,21 @@ def plot_answer_metrics(results):
 
     values = [
 
-        sum(r["exact_match"] for r in results) / len(results),
+        metrics["exact_match"],
 
-        sum(r["token_f1"] for r in results) / len(results),
+        metrics["token_f1"],
 
-        sum(r["entity_f1"] for r in results) / len(results),
+        metrics["entity_f1"],
 
-        sum(r["relationship_f1"] for r in results) / len(results)
+        metrics["relationship_f1"]
 
     ]
 
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(8, 5))
 
     plt.bar(labels, values)
 
-    plt.ylim(0,1)
+    plt.ylim(0, 1)
 
     plt.ylabel("Score")
 
@@ -199,7 +199,7 @@ def plot_question_type_distribution(dataset):
 
         )
 
-    plt.figure(figsize=(6,6))
+    plt.figure(figsize=(6, 6))
 
     plt.pie(
 
@@ -258,7 +258,7 @@ def plot_difficulty_distribution(dataset):
 
         )
 
-    plt.figure(figsize=(6,5))
+    plt.figure(figsize=(6, 5))
 
     plt.bar(
 

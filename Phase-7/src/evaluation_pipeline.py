@@ -1,7 +1,10 @@
 from src.graph_evaluator import evaluate_dataset
 from src.retrieval_evaluator import evaluate_retrieval
 from src.answer_generator import generate_answer_from_retrieval
-from src.answer_evaluator import evaluate_answer
+from src.answer_evaluator import (
+    evaluate_answer,
+    evaluate_answers
+)
 from src.graph_metrics import graph_statistics
 
 from src.visualization import (
@@ -47,11 +50,7 @@ def run_pipeline():
 
     print("\nComputing retrieval metrics...")
 
-    retrieval_results = evaluate_retrieval(
-
-        graph_results
-
-    )
+    retrieval_results, retrieval_summary = evaluate_retrieval(graph_results)
 
     # -----------------------------------
     # Answer Generation
@@ -61,46 +60,91 @@ def run_pipeline():
 
     answer_results = []
 
-    for benchmark in retrieval_results:
+    try:
 
-        response = generate_answer_from_retrieval(
+        for benchmark in retrieval_results:
 
-            question=benchmark["question"],
+            response = generate_answer_from_retrieval(
 
-            vector_context=benchmark["retrieved_vector"],
+                question=benchmark["question"],
 
-            graph_context=benchmark["retrieved_graph"]
+                vector_context=benchmark["retrieved_vector"],
+
+                graph_context=benchmark["retrieved_graph"]
+
+            )
+
+            metrics = evaluate_answer(
+
+                question=benchmark["question"],
+
+                reference_answer=benchmark["reference_answer"],
+
+                generated_answer=response["answer"],
+
+                expected_entities=benchmark["expected_entities"],
+
+                retrieved_entities=[
+                    {"name": entity["entity"]}
+                    for entity in benchmark["retrieved_graph"]
+                ],
+
+                expected_relationships=benchmark["expected_relationships"],
+
+                retrieved_relationships=benchmark["retrieved_relationships"]
+
+            )
+
+            answer_results.append(metrics)
+
+    except Exception as e:
+
+        print("\n======================================")
+        print("ANSWER GENERATION INTERRUPTED")
+        print("======================================")
+        print(e)
+
+        if answer_results:
+            answer_summary = evaluate_answers(answer_results)
+        else:
+            answer_summary = {}
+
+        print("\nGenerating partial visualizations...")
+
+        plot_graph_statistics(graph_metrics)
+
+        plot_retrieval_metrics(retrieval_summary)
+
+        if answer_summary:
+            plot_answer_metrics(answer_summary)
+
+        plot_question_type_distribution(retrieval_results)
+
+        plot_difficulty_distribution(retrieval_results)
+
+        print("\nGenerating partial report...")
+
+        generate_report(
+
+            graph_metrics,
+
+            retrieval_summary,
+
+            answer_summary
 
         )
 
-        metrics = evaluate_answer(
+        print("\n======================================")
+        print("PARTIAL EVALUATION COMPLETE")
+        print("======================================")
 
-            question=benchmark["question"],
+        return
 
-            reference_answer=benchmark["reference_answer"],
+    # -----------------------------------
+    # Aggregate Answer Metrics
+    # -----------------------------------
 
-            generated_answer=response["answer"],
-
-            expected_entities=benchmark[
-                "expected_entities"
-            ],
-
-            retrieved_entities=[
-                {"name": entity["entity"]}
-                for entity in benchmark["retrieved_graph"]
-            ],
-
-            expected_relationships=benchmark[
-                "expected_relationships"
-            ],
-
-            retrieved_relationships=benchmark[
-                "retrieved_relationships"
-            ]
-
-        )
-
-        answer_results.append(metrics)
+    answer_summary = evaluate_answers(answer_results)
 
     # -----------------------------------
     # Visualizations
@@ -116,13 +160,13 @@ def run_pipeline():
 
     plot_retrieval_metrics(
 
-        retrieval_results
+        retrieval_summary
 
     )
 
     plot_answer_metrics(
 
-        answer_results
+        answer_summary
 
     )
 
@@ -148,9 +192,9 @@ def run_pipeline():
 
         graph_metrics,
 
-        retrieval_results,
+        retrieval_summary,
 
-        answer_results
+        answer_summary
 
     )
 
